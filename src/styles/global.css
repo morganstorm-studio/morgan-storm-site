@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-linen: #fdf8ef;
+  --color-teal-mist: #bfd6d7;
+  --color-nadi-flow: #177e88;
+  --color-deep-ocean: #084c61;
+  --color-warm-sand: #dab7aa;
+
+  --font-body: "Jost", "Avenir Next", Avenir, Helvetica, Arial, sans-serif;
+  --font-display: "Mollgan", Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    background: var(--color-linen);
+    color: var(--color-deep-ocean);
+    font-family: var(--font-body);
+  }
+}
