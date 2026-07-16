@@ -1,0 +1,74 @@
+---
+import { footerNav, legalEntityLine, contactEmail, linkedInUrl, substackUrl, logos } from "../../data/site";
+---
+
+<footer class="border-t border-teal-mist bg-linen">
+  <div class="container-content py-12">
+    <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+      <div>
+        <p class="font-display text-xl text-deep-ocean">Morgan Storm</p>
+        <p class="mt-2 max-w-sm font-body text-sm text-deep-ocean/70">
+          Strategic Communications &middot; Digital Strategy &middot; Ayurvedic Wellness
+        </p>
+      </div>
+
+      <nav aria-label="Footer">
+        <ul class="flex flex-col gap-2 font-body text-sm">
+          {
+            footerNav.map((link) => (
+              <li>
+                <a href={link.href} class="text-deep-ocean hover:text-vishuddha-teal">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <ul class="flex flex-col gap-2 font-body text-sm">
+        <li>
+          {
+            contactEmail ? (
+              <a href={`mailto:${contactEmail}`} class="text-deep-ocean hover:text-vishuddha-teal">
+                {contactEmail}
+              </a>
+            ) : (
+              <span class="text-deep-ocean/50">Contact email coming soon</span>
+            )
+          }
+        </li>
+        <li>
+          {
+            linkedInUrl ? (
+              <a href={linkedInUrl} class="text-deep-ocean hover:text-vishuddha-teal" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            ) : (
+              <span class="text-deep-ocean/50">LinkedIn coming soon</span>
+            )
+          }
+        </li>
+        <li>
+          {
+            substackUrl ? (
+              <a href={substackUrl} class="text-deep-ocean hover:text-vishuddha-teal" target="_blank" rel="noopener noreferrer">
+                A Way Back
+              </a>
+            ) : (
+              <span class="text-deep-ocean/50">A Way Back coming soon</span>
+            )
+          }
+        </li>
+      </ul>
+    </div>
+
+    <div class="mt-10 flex items-start gap-2 border-t border-teal-mist pt-6 font-body text-xs text-deep-ocean/60">
+      <img src={logos.dhiSanghaMark} alt="" class="mt-0.5 h-4 w-4 opacity-70" />
+      <div>
+        <p>&copy; {new Date().getFullYear()} Morgan Storm. All rights reserved.</p>
+        <p>{legalEntityLine}</p>
+      </div>
+    </div>
+  </div>
+</footer>

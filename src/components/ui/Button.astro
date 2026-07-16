@@ -1,0 +1,26 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  variant?: "primary" | "secondary";
+  external?: boolean;
+}
+
+const { href, label, variant = "primary", external = false } = Astro.props;
+
+const base =
+  "inline-flex items-center justify-center rounded-full px-6 py-3 font-body text-sm transition-colors";
+const variants = {
+  primary: "bg-vishuddha-teal text-linen hover:bg-deep-ocean",
+  secondary: "border border-deep-ocean text-deep-ocean hover:bg-deep-ocean hover:text-linen",
+};
+---
+
+<a
+  href={href}
+  class={`${base} ${variants[variant]}`}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  {label}
+</a>

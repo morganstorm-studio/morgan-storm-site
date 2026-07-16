@@ -1,14 +1,67 @@
 @import "tailwindcss";
 
+/* Tailwind's preflight (imported above) already provides a sensible CSS
+   reset (box-sizing, margin/padding resets, etc.) — not duplicated here. */
+
+@font-face {
+  font-family: "Mollgan";
+  src: url("/fonts/mollgan-regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Galdern";
+  src: url("/fonts/galdern-thin.woff") format("woff");
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Galdern";
+  src: url("/fonts/galdern-light.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Galdern";
+  src: url("/fonts/galdern-regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 @theme {
+  /* Flat brand colors */
   --color-linen: #fdf8ef;
   --color-teal-mist: #bfd6d7;
-  --color-nadi-flow: #177e88;
+  --color-vishuddha-teal: #177e88;
   --color-deep-ocean: #084c61;
   --color-warm-sand: #dab7aa;
 
-  --font-body: "Jost", "Avenir Next", Avenir, Helvetica, Arial, sans-serif;
+  /* Nadi Flow is a gradient, not a flat color — stops approximated from the
+     brand-guidelines PDF (pages 1/4/7). Used selectively for expressive
+     hero/divider/CTA moments, not throughout the foundational components. */
+  --gradient-nadi-flow: linear-gradient(160deg, #3fa8a9 0%, #0b4f62 50%, #b9e2d2 100%);
+
+  /* Typography roles */
+  --font-body: "Jost Variable", "Jost", "Avenir Next", Avenir, Helvetica, Arial, sans-serif;
   --font-display: "Mollgan", Georgia, "Times New Roman", serif;
+  --font-accent: "Galdern", "Jost Variable", "Jost", "Avenir Next", Avenir, Helvetica, Arial, sans-serif;
+
+  /* Fluid display sizes for future oversized editorial headings
+     (e.g. HomeHero/AyurvedaHero) — Tailwind's default text-* scale is
+     left untouched for regular body/interface text. */
+  --text-display-md: clamp(2rem, 1.6rem + 1.8vw, 3.25rem);
+  --text-display-lg: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
+
+  /* Shared content-width/spacing tokens */
+  --container-max-width: 72rem;
+  --container-padding: 1.5rem;
 }
 
 @layer base {
@@ -17,5 +70,61 @@
     background: var(--color-linen);
     color: var(--color-deep-ocean);
     font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+    text-underline-offset: 0.15em;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-vishuddha-teal);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .bg-nadi-flow {
+    background-image: var(--gradient-nadi-flow);
+  }
+
+  .container-content {
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    border-radius: 0.25rem;
+    background: var(--color-deep-ocean);
+    color: var(--color-linen);
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-body);
+    transition: top 0.15s ease-in-out;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

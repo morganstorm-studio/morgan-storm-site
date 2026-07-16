@@ -1,0 +1,23 @@
+---
+interface Props {
+  id?: string;
+  background?: "linen" | "teal-mist" | "warm-sand" | "deep-ocean" | "nadi-flow";
+  class?: string;
+}
+
+const { id, background = "linen", class: className } = Astro.props;
+
+const backgrounds: Record<string, string> = {
+  linen: "bg-linen",
+  "teal-mist": "bg-teal-mist",
+  "warm-sand": "bg-warm-sand",
+  "deep-ocean": "bg-deep-ocean text-linen",
+  "nadi-flow": "bg-nadi-flow text-linen",
+};
+---
+
+<section id={id} class={`${backgrounds[background]} ${className ?? ""}`}>
+  <div class="container-content py-16 md:py-24">
+    <slot />
+  </div>
+</section>

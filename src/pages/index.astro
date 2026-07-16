@@ -1,28 +1,16 @@
 ---
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/ui/PageHero.astro";
 
 const title = "Morgan Storm";
 const description =
   "Morgan Storm — strategic communications, digital strategy, and Ayurvedic wellness.";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <main class="flex min-h-screen flex-col items-center justify-center gap-4 bg-linen px-6 text-center text-deep-ocean">
-      <p class="font-body text-sm uppercase tracking-widest text-nadi-flow">
-        Strategic Communications &middot; Digital Strategy &middot; Ayurvedic Wellness
-      </p>
-      <h1 class="font-display text-5xl text-deep-ocean">Morgan Storm</h1>
-      <p class="font-body text-lg text-deep-ocean/80">
-        Astro and Tailwind are working. The website foundation is ready.
-      </p>
-    </main>
-  </body>
-</html>
+<BaseLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Strategic Communications · Digital Strategy · Ayurvedic Wellness"
+    heading="Morgan Storm"
+    supporting="Foundational layout, SEO, header, footer, and design system are wired up. Page content coming next."
+  />
+</BaseLayout>
