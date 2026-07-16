@@ -1,36 +1,31 @@
 ---
 import { primaryNav, logos } from "../../data/site";
-import Button from "../ui/Button.astro";
-import GraphicPlaceholder from "../ui/GraphicPlaceholder.astro";
+
+// Fixed/floating header: intentionally taken out of normal document flow so
+// the homepage hero photo can extend behind it uninterrupted. Interior
+// pages compensate with extra top padding in PageHero.astro.
 ---
 
-<header class="sticky top-0 z-50 border-b border-teal-mist bg-linen/95 backdrop-blur">
-  <div class="container-content flex items-center justify-between py-4">
-    <a href="/" class="flex items-center py-1" aria-label="Morgan Storm — Home">
-      <img
-        src={logos.primaryLockup}
-        alt=""
-        class="hidden h-auto w-[180px] md:block lg:w-[220px]"
-      />
-      <span class="flex items-center gap-2 md:hidden">
-        <GraphicPlaceholder variant="brand" class="h-4 w-4 text-vishuddha-teal" />
-        <span class="font-display text-2xl text-deep-ocean">Morgan Storm</span>
-      </span>
+<header class="fixed inset-x-0 top-0 z-50 px-[4vw] pt-5 md:px-[5vw] md:pt-6">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full border border-linen/30 bg-deep-ocean/35 px-5 py-2.5 backdrop-blur-md md:px-6 md:py-3">
+    <a href="/" class="flex shrink-0 items-center gap-2" aria-label="Morgan Storm — Home">
+      <img src={logos.dhiSanghaMark} alt="" class="h-6 w-6 md:h-7 md:w-7" />
+      <span class="font-display text-xl text-linen md:text-2xl">Morgan Storm</span>
     </a>
 
-    <nav aria-label="Primary">
-      <ul class="hidden items-center gap-6 md:flex">
+    <nav aria-label="Primary" class="hidden md:block">
+      <ul class="flex items-center gap-6">
         {
           primaryNav.map((link) =>
             link.children && link.children.length > 0 ? (
               <li class="relative" data-nav-dropdown>
                 <div class="flex items-center gap-1">
-                  <a href={link.href} class="font-body text-sm text-deep-ocean hover:text-vishuddha-teal">
+                  <a href={link.href} class="font-body text-sm text-linen hover:text-warm-sand">
                     {link.label}
                   </a>
                   <button
                     type="button"
-                    class="flex h-6 w-6 items-center justify-center rounded text-deep-ocean"
+                    class="flex h-6 w-6 items-center justify-center rounded text-linen"
                     aria-expanded="false"
                     aria-label={`Show ${link.label} submenu`}
                     data-nav-toggle
@@ -48,7 +43,7 @@ import GraphicPlaceholder from "../ui/GraphicPlaceholder.astro";
                   </button>
                 </div>
                 <ul
-                  class="absolute top-full left-0 z-50 mt-2 hidden min-w-[10rem] rounded-md border border-teal-mist bg-linen py-2 shadow-lg"
+                  class="absolute top-full left-0 z-50 mt-2 hidden min-w-[9rem] rounded-lg border border-teal-mist bg-linen/95 py-1.5 backdrop-blur-sm"
                   data-nav-submenu
                 >
                   {link.children.map((child) => (
@@ -65,7 +60,7 @@ import GraphicPlaceholder from "../ui/GraphicPlaceholder.astro";
               </li>
             ) : (
               <li>
-                <a href={link.href} class="font-body text-sm text-deep-ocean hover:text-vishuddha-teal">
+                <a href={link.href} class="font-body text-sm text-linen hover:text-warm-sand">
                   {link.label}
                 </a>
               </li>
@@ -75,13 +70,16 @@ import GraphicPlaceholder from "../ui/GraphicPlaceholder.astro";
       </ul>
     </nav>
 
-    <div class="hidden md:block">
-      <Button href="/contact" label="Get in Touch" variant="primary" />
-    </div>
+    <a
+      href="/contact"
+      class="hidden shrink-0 rounded-full border border-linen/50 px-5 py-2 font-body text-sm text-linen transition-colors hover:border-vishuddha-teal hover:bg-vishuddha-teal md:inline-flex md:items-center"
+    >
+      Get in Touch
+    </a>
 
     <button
       type="button"
-      class="flex min-h-11 min-w-11 items-center justify-center rounded-md px-3 py-2 font-body text-sm text-deep-ocean md:hidden"
+      class="flex min-h-11 min-w-11 items-center justify-center rounded-full font-body text-sm text-linen md:hidden"
       aria-expanded="false"
       aria-controls="mobile-nav"
       id="nav-toggle"
@@ -91,19 +89,23 @@ import GraphicPlaceholder from "../ui/GraphicPlaceholder.astro";
     </button>
   </div>
 
-  <nav id="mobile-nav" aria-label="Mobile" class="hidden border-t border-teal-mist px-6 py-2 md:hidden">
-    <ul class="flex flex-col">
+  <nav
+    id="mobile-nav"
+    aria-label="Mobile"
+    class="mx-auto mt-3 hidden max-w-6xl rounded-2xl border border-teal-mist bg-linen py-3 shadow-md md:hidden"
+  >
+    <ul class="flex flex-col px-2">
       {
         primaryNav.map((link) => (
           <li>
-            <a href={link.href} class="block py-3 font-body text-deep-ocean">
+            <a href={link.href} class="block min-h-11 rounded-lg px-4 py-3 font-body text-deep-ocean">
               {link.label}
             </a>
             {link.children && link.children.length > 0 && (
               <ul class="ml-4 flex flex-col border-l border-teal-mist pl-4">
                 {link.children.map((child) => (
                   <li>
-                    <a href={child.href} class="block py-2 font-body text-sm text-deep-ocean/80">
+                    <a href={child.href} class="block min-h-11 py-2 font-body text-sm text-deep-ocean/80">
                       {child.label}
                     </a>
                   </li>
@@ -113,6 +115,14 @@ import GraphicPlaceholder from "../ui/GraphicPlaceholder.astro";
           </li>
         ))
       }
+      <li class="mt-2 px-4 pb-1">
+        <a
+          href="/contact"
+          class="block min-h-11 rounded-full bg-deep-ocean px-5 py-3 text-center font-body text-sm text-linen"
+        >
+          Get in Touch
+        </a>
+      </li>
     </ul>
   </nav>
 </header>
@@ -125,11 +135,13 @@ import GraphicPlaceholder from "../ui/GraphicPlaceholder.astro";
   const closeMenu = () => {
     toggle?.setAttribute("aria-expanded", "false");
     nav?.classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
   };
 
   const openMenu = () => {
     toggle?.setAttribute("aria-expanded", "true");
     nav?.classList.remove("hidden");
+    document.body.classList.add("overflow-hidden");
   };
 
   toggle?.addEventListener("click", () => {
@@ -147,6 +159,14 @@ import GraphicPlaceholder from "../ui/GraphicPlaceholder.astro";
     if (!expanded) return;
     closeMenu();
     toggle?.focus();
+  });
+
+  document.addEventListener("click", (event) => {
+    const expanded = toggle?.getAttribute("aria-expanded") === "true";
+    if (!expanded) return;
+    const target = event.target;
+    if (toggle?.contains(target) || nav?.contains(target)) return;
+    closeMenu();
   });
 
   // Desktop dropdown submenus (Web & Strategy → Portfolio, About → Résumé)
