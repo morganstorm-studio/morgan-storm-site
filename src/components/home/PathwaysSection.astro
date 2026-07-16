@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import ayurvedaImage from "../../assets/images/hero_opt2.jpg";
+import { pathways } from "../../data/pages/home";
+import Button from "../ui/Button.astro";
+---
+
+<section class="bg-teal-mist py-20 md:py-28">
+  <div class="container-content">
+    <h2 class="text-center font-display text-4xl text-deep-ocean md:text-6xl">Choose Your Path</h2>
+
+    <div class="mt-16 grid gap-16 md:grid-cols-2 md:gap-10">
+      <!-- Ayurvedic Wellness — the primary direction, slightly larger -->
+      <div class="flex flex-col items-center text-center">
+        <p class="font-accent text-sm uppercase tracking-widest text-deep-ocean/70">Ayurvedic Wellness</p>
+        <div class="mt-4 h-64 w-56 overflow-hidden rounded-[50%] border-4 border-linen shadow-md md:h-80 md:w-64 lg:h-96 lg:w-72">
+          <Image
+            src={ayurvedaImage}
+            alt="Morgan Storm relaxing beside a pool overlooking the jungle"
+            widths={[300, 500, 700]}
+            sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, 224px"
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <h3 class="-mt-6 max-w-xs rounded-full bg-linen px-6 py-2 font-display text-xl text-deep-ocean shadow-sm md:text-2xl">
+          {pathways.ayurveda.heading}
+        </h3>
+        <p class="mt-4 max-w-sm font-body text-base text-deep-ocean/80">{pathways.ayurveda.supporting}</p>
+        <div class="mt-6">
+          <Button href={pathways.ayurveda.cta.href} label={pathways.ayurveda.cta.label} variant="primary" />
+        </div>
+      </div>
+
+      <!-- Web & Digital Strategy — elegant branded placeholder until real project imagery exists -->
+      <div class="flex flex-col items-center text-center">
+        <p class="font-accent text-sm uppercase tracking-widest text-deep-ocean/70">Web &amp; Digital Strategy</p>
+        <div class="mt-4 flex h-56 w-56 flex-col items-center justify-center gap-1 overflow-hidden rounded-[50%] border-4 border-linen bg-deep-ocean shadow-md md:h-64 md:w-64 lg:h-72 lg:w-72">
+          <span class="font-display text-xl text-linen md:text-2xl">Selected Work</span>
+          <span class="font-body text-xs tracking-wide text-linen/60 uppercase">Visuals coming soon</span>
+        </div>
+        <h3 class="-mt-6 max-w-xs rounded-full bg-linen px-6 py-2 font-display text-xl text-deep-ocean shadow-sm md:text-2xl">
+          {pathways.web.heading}
+        </h3>
+        <p class="mt-4 max-w-sm font-body text-base text-deep-ocean/80">{pathways.web.supporting}</p>
+        <div class="mt-6">
+          <Button href={pathways.web.cta.href} label={pathways.web.cta.label} variant="secondary" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

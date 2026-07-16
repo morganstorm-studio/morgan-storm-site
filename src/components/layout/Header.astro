@@ -5,11 +5,11 @@ import Button from "../ui/Button.astro";
 
 <header class="sticky top-0 z-50 border-b border-teal-mist bg-linen/95 backdrop-blur">
   <div class="container-content flex items-center justify-between py-4">
-    <a href="/" class="flex items-center">
+    <a href="/" class="flex items-center py-1" aria-label="Morgan Storm — Home">
       <img
         src={logos.primaryLockup}
-        alt="Morgan Storm — Ayurvedic Wellness Counselor"
-        class="hidden h-9 w-auto md:block"
+        alt=""
+        class="hidden h-auto w-[180px] md:block lg:w-[220px]"
       />
       <span class="font-display text-2xl text-deep-ocean md:hidden">Morgan Storm</span>
     </a>
@@ -17,13 +17,56 @@ import Button from "../ui/Button.astro";
     <nav aria-label="Primary">
       <ul class="hidden items-center gap-6 md:flex">
         {
-          primaryNav.map((link) => (
-            <li>
-              <a href={link.href} class="font-body text-sm text-deep-ocean hover:text-vishuddha-teal">
-                {link.label}
-              </a>
-            </li>
-          ))
+          primaryNav.map((link) =>
+            link.children && link.children.length > 0 ? (
+              <li class="relative" data-nav-dropdown>
+                <div class="flex items-center gap-1">
+                  <a href={link.href} class="font-body text-sm text-deep-ocean hover:text-vishuddha-teal">
+                    {link.label}
+                  </a>
+                  <button
+                    type="button"
+                    class="flex h-6 w-6 items-center justify-center rounded text-deep-ocean"
+                    aria-expanded="false"
+                    aria-label={`Show ${link.label} submenu`}
+                    data-nav-toggle
+                  >
+                    <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+                      <path
+                        d="M1 1l4 4 4-4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <ul
+                  class="absolute top-full left-0 z-50 mt-2 hidden min-w-[10rem] rounded-md border border-teal-mist bg-linen py-2 shadow-lg"
+                  data-nav-submenu
+                >
+                  {link.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.href}
+                        class="block px-4 py-2 font-body text-sm text-deep-ocean hover:bg-teal-mist/40 hover:text-vishuddha-teal"
+                      >
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ) : (
+              <li>
+                <a href={link.href} class="font-body text-sm text-deep-ocean hover:text-vishuddha-teal">
+                  {link.label}
+                </a>
+              </li>
+            ),
+          )
         }
       </ul>
     </nav>
@@ -34,7 +77,7 @@ import Button from "../ui/Button.astro";
 
     <button
       type="button"
-      class="font-body text-sm text-deep-ocean md:hidden"
+      class="flex min-h-11 min-w-11 items-center justify-center rounded-md px-3 py-2 font-body text-sm text-deep-ocean md:hidden"
       aria-expanded="false"
       aria-controls="mobile-nav"
       id="nav-toggle"
@@ -44,14 +87,25 @@ import Button from "../ui/Button.astro";
     </button>
   </div>
 
-  <nav id="mobile-nav" aria-label="Mobile" class="hidden border-t border-teal-mist px-6 py-4 md:hidden">
-    <ul class="flex flex-col gap-4">
+  <nav id="mobile-nav" aria-label="Mobile" class="hidden border-t border-teal-mist px-6 py-2 md:hidden">
+    <ul class="flex flex-col">
       {
         primaryNav.map((link) => (
           <li>
-            <a href={link.href} class="font-body text-deep-ocean">
+            <a href={link.href} class="block py-3 font-body text-deep-ocean">
               {link.label}
             </a>
+            {link.children && link.children.length > 0 && (
+              <ul class="ml-4 flex flex-col border-l border-teal-mist pl-4">
+                {link.children.map((child) => (
+                  <li>
+                    <a href={child.href} class="block py-2 font-body text-sm text-deep-ocean/80">
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))
       }
@@ -60,6 +114,7 @@ import Button from "../ui/Button.astro";
 </header>
 
 <script>
+  // Mobile menu toggle
   const toggle = document.getElementById("nav-toggle");
   const nav = document.getElementById("mobile-nav");
 
@@ -88,5 +143,59 @@ import Button from "../ui/Button.astro";
     if (!expanded) return;
     closeMenu();
     toggle?.focus();
+  });
+
+  // Desktop dropdown submenus (Web & Strategy → Portfolio, About → Résumé)
+  const dropdowns = Array.from(document.querySelectorAll("[data-nav-dropdown]"));
+
+  const openDropdown = (el) => {
+    el.querySelector("[data-nav-toggle]")?.setAttribute("aria-expanded", "true");
+    el.querySelector("[data-nav-submenu]")?.classList.remove("hidden");
+  };
+
+  const closeDropdown = (el) => {
+    el.querySelector("[data-nav-toggle]")?.setAttribute("aria-expanded", "false");
+    el.querySelector("[data-nav-submenu]")?.classList.add("hidden");
+  };
+
+  const closeAllDropdowns = () => dropdowns.forEach(closeDropdown);
+
+  dropdowns.forEach((el) => {
+    el.addEventListener("mouseenter", () => openDropdown(el));
+    el.addEventListener("mouseleave", () => closeDropdown(el));
+
+    el.addEventListener("focusin", () => openDropdown(el));
+    el.addEventListener("focusout", (event) => {
+      const next = event.relatedTarget;
+      if (!next || !el.contains(next)) {
+        closeDropdown(el);
+      }
+    });
+
+    el.querySelector("[data-nav-toggle]")?.addEventListener("click", (event) => {
+      event.preventDefault();
+      const isOpen = el.querySelector("[data-nav-toggle]")?.getAttribute("aria-expanded") === "true";
+      closeAllDropdowns();
+      if (!isOpen) openDropdown(el);
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    const active = document.activeElement;
+    dropdowns.forEach((el) => {
+      if (el.contains(active)) {
+        closeDropdown(el);
+        el.querySelector("a")?.focus();
+      } else {
+        closeDropdown(el);
+      }
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    dropdowns.forEach((el) => {
+      if (!el.contains(event.target)) closeDropdown(el);
+    });
   });
 </script>

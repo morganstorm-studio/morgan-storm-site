@@ -2,13 +2,15 @@ import type { NavLink } from "./types";
 
 export const siteTitle = "Morgan Storm";
 
+/**
+ * Portfolio and Résumé are reachable as nested children of Web & Strategy
+ * and About, rather than as separate top-level items — keeps the primary
+ * nav to four entries while still surfacing both routes directly.
+ */
 export const primaryNav: NavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "Web", href: "/web" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Résumé", href: "/resume" },
+  { label: "Web & Strategy", href: "/web", children: [{ label: "Portfolio", href: "/portfolio" }] },
   { label: "Ayurveda", href: "/ayurveda" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about", children: [{ label: "Résumé", href: "/resume" }] },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -25,11 +27,13 @@ export const logos = {
   dhiSanghaMark: "/logos/dhi_sangha_mark.png",
 };
 
+export const contactEmail = "hello@morgan-storm.com";
+
 /**
  * Configuration placeholders: `null` means Morgan hasn't supplied this yet.
  * Never invent a value here — consuming components must handle the `null`
- * case explicitly rather than rendering a fabricated link.
+ * case explicitly (omit the link entirely) rather than rendering a
+ * fabricated URL or "coming soon" text.
  */
-export const contactEmail: string | null = null;
 export const linkedInUrl: string | null = null;
 export const substackUrl: string | null = null;

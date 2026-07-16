@@ -1,0 +1,14 @@
+---
+import { finalCTA } from "../../data/pages/home";
+import Button from "../ui/Button.astro";
+---
+
+<section class="bg-deep-ocean">
+  <div class="container-content py-16 text-center text-linen md:py-20">
+    <h2 class="font-display text-display-md">{finalCTA.heading}</h2>
+    <p class="mx-auto mt-4 max-w-xl font-body text-lg text-linen/90">{finalCTA.supporting}</p>
+    <div class="mt-8">
+      <Button href={finalCTA.cta.href} label={finalCTA.cta.label} variant="inverse" />
+    </div>
+  </div>
+</section>

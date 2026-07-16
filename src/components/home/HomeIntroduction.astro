@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import portraitImage from "../../assets/images/headshot.jpg";
+import { introduction } from "../../data/pages/home";
+import Button from "../ui/Button.astro";
+---
+
+<section class="bg-linen">
+  <div class="container-content grid gap-10 py-16 md:py-24 lg:grid-cols-12 lg:items-center lg:gap-10">
+    <div class="lg:col-span-5">
+      <div class="overflow-hidden rounded-tl-[2.5rem]">
+        <Image
+          src={portraitImage}
+          alt="Morgan Storm seated outdoors in a garden courtyard, smiling"
+          widths={[300, 600, 900]}
+          sizes="(min-width: 1024px) 40vw, 90vw"
+          loading="lazy"
+          class="h-[420px] w-full object-cover object-top md:h-[480px]"
+        />
+      </div>
+    </div>
+    <div class="lg:col-span-7">
+      <h2 class="font-display text-display-md text-deep-ocean">{introduction.heading}</h2>
+      <p class="mt-6 max-w-lg font-body text-lg text-deep-ocean/80">{introduction.copy}</p>
+      <div class="mt-8">
+        <Button href={introduction.cta.href} label={introduction.cta.label} variant="secondary" />
+      </div>
+    </div>
+  </div>
+</section>

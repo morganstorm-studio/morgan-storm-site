@@ -2,17 +2,18 @@
 interface Props {
   href: string;
   label: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "inverse";
   external?: boolean;
 }
 
 const { href, label, variant = "primary", external = false } = Astro.props;
 
 const base =
-  "inline-flex items-center justify-center rounded-full px-6 py-3 font-body text-sm transition-colors";
+  "inline-flex items-center justify-center rounded-full px-7 py-3.5 font-body text-base transition-colors";
 const variants = {
   primary: "bg-vishuddha-teal text-linen hover:bg-deep-ocean",
   secondary: "border border-deep-ocean text-deep-ocean hover:bg-deep-ocean hover:text-linen",
+  inverse: "border border-linen text-linen hover:bg-linen hover:text-deep-ocean",
 };
 ---
 

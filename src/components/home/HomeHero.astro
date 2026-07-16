@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../../assets/images/hero_opt1.jpg";
+import { hero } from "../../data/pages/home";
+import Button from "../ui/Button.astro";
+---
+
+<section class="relative overflow-hidden bg-deep-ocean">
+  <div class="absolute inset-0" aria-hidden="true">
+    <Image
+      src={heroImage}
+      alt=""
+      widths={[640, 1024, 1440, 1920]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="h-full w-full object-cover"
+    />
+  </div>
+
+  <div class="container-content relative py-20 md:py-28 lg:py-32">
+    <!-- Narrower, deliberately positioned panel — right-aligned on desktop
+         so Morgan and the landscape stay the dominant visual on the left. -->
+    <div class="mx-auto max-w-sm text-center md:mx-0 md:ml-auto md:max-w-md md:text-left">
+      <div class="relative">
+        <div
+          class="absolute -inset-x-5 -inset-y-6 -z-10 rounded-tl-3xl rounded-tr-[4rem] rounded-br-3xl rounded-bl-[4rem] bg-warm-sand/95 md:-inset-x-8 md:-inset-y-8"
+          aria-hidden="true"
+        >
+        </div>
+        <div class="px-3 py-5 md:px-6 md:py-8">
+          <p class="font-accent text-sm uppercase tracking-widest text-deep-ocean">{hero.eyebrow}</p>
+          <h1 class="mt-4 font-display text-display-lg text-deep-ocean">
+            {hero.headline}
+          </h1>
+          <p class="mt-6 font-body text-lg text-deep-ocean/80">
+            {hero.supporting}
+          </p>
+          <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center md:items-start md:justify-start">
+            {
+              hero.ctas.map((cta) => (
+                <Button href={cta.href} label={cta.label} variant={cta.variant ?? "primary"} />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

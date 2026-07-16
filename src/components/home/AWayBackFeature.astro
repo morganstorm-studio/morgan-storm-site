@@ -1,0 +1,27 @@
+---
+import { awayBack } from "../../data/pages/home";
+import { substackUrl } from "../../data/site";
+import Button from "../ui/Button.astro";
+---
+
+<section class="bg-vishuddha-teal">
+  <div class="container-content py-20 md:py-28">
+    <div class="grid gap-8 md:grid-cols-2 md:items-center md:gap-12">
+      <div>
+        <p class="font-accent text-sm uppercase tracking-widest text-linen/80">Writing</p>
+        <h2 class="mt-3 font-display text-display-lg text-linen">{awayBack.heading}</h2>
+      </div>
+      <div>
+        <p class="font-body text-lg text-linen/85">{awayBack.description}</p>
+        <div class="mt-6">
+          <Button
+            href={substackUrl ?? awayBack.cta.href}
+            label={awayBack.cta.label}
+            variant="inverse"
+            external={Boolean(substackUrl)}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

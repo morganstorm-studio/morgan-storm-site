@@ -28,38 +28,28 @@ import { footerNav, legalEntityLine, contactEmail, linkedInUrl, substackUrl, log
 
       <ul class="flex flex-col gap-2 font-body text-sm">
         <li>
-          {
-            contactEmail ? (
-              <a href={`mailto:${contactEmail}`} class="text-deep-ocean hover:text-vishuddha-teal">
-                {contactEmail}
-              </a>
-            ) : (
-              <span class="text-deep-ocean/50">Contact email coming soon</span>
-            )
-          }
+          <a href={`mailto:${contactEmail}`} class="text-deep-ocean hover:text-vishuddha-teal">
+            {contactEmail}
+          </a>
         </li>
-        <li>
-          {
-            linkedInUrl ? (
+        {
+          linkedInUrl && (
+            <li>
               <a href={linkedInUrl} class="text-deep-ocean hover:text-vishuddha-teal" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
-            ) : (
-              <span class="text-deep-ocean/50">LinkedIn coming soon</span>
-            )
-          }
-        </li>
-        <li>
-          {
-            substackUrl ? (
+            </li>
+          )
+        }
+        {
+          substackUrl && (
+            <li>
               <a href={substackUrl} class="text-deep-ocean hover:text-vishuddha-teal" target="_blank" rel="noopener noreferrer">
                 A Way Back
               </a>
-            ) : (
-              <span class="text-deep-ocean/50">A Way Back coming soon</span>
-            )
-          }
-        </li>
+            </li>
+          )
+        }
       </ul>
     </div>
 

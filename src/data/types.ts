@@ -1,12 +1,13 @@
 export interface NavLink {
   label: string;
   href: string;
+  children?: NavLink[];
 }
 
 export interface CTA {
   label: string;
   href: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "inverse";
   external?: boolean;
 }
 

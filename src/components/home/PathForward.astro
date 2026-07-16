@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import walkingImage from "../../assets/images/walking.jpg";
+import { pathForward } from "../../data/pages/home";
+---
+
+<section class="relative bg-deep-ocean">
+  <div class="relative h-[70vh] max-h-[720px] min-h-[420px] overflow-hidden">
+    <Image
+      src={walkingImage}
+      alt="Morgan Storm walking away from the camera through a symmetrical white architectural pavilion"
+      widths={[500, 900, 1400, 1900]}
+      sizes="100vw"
+      loading="lazy"
+      class="h-full w-full object-cover object-[center_25%] md:object-center"
+    />
+    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-deep-ocean/80 to-transparent p-8 md:p-12">
+      <p class="max-w-md font-accent text-lg text-linen md:text-xl">{pathForward.caption}</p>
+    </div>
+  </div>
+</section>
