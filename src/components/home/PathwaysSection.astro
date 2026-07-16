@@ -2,49 +2,130 @@
 import { Image } from "astro:assets";
 import ayurvedaImage from "../../assets/images/hero_opt2.jpg";
 import { pathways } from "../../data/pages/home";
-import Button from "../ui/Button.astro";
+
+// Structural shell only — the moon/sun icons, badge marks, and mountain
+// band below are simple CSS/SVG stand-ins. Swap them for the real
+// illustrated assets (arch framing, celestial motifs, botanical sprigs)
+// once supplied; the layout is built to receive them without rework.
 ---
 
-<section class="bg-teal-mist py-20 md:py-28">
+<section class="relative overflow-hidden bg-gradient-to-b from-teal-mist/50 via-linen to-linen py-16 md:py-24">
   <div class="container-content">
-    <h2 class="text-center font-display text-4xl text-deep-ocean md:text-6xl">Choose Your Path</h2>
+    <div class="relative mx-auto max-w-5xl overflow-hidden rounded-t-[4rem] rounded-b-3xl bg-linen shadow-lg md:rounded-t-[7rem]">
+      <!-- Heading, flanked by moon / sun -->
+      <div class="flex items-center justify-center gap-3 pt-10 md:gap-6 md:pt-16">
+        <svg viewBox="0 0 24 24" class="h-6 w-6 shrink-0 text-warm-sand md:h-8 md:w-8" fill="currentColor" aria-hidden="true">
+          <path d="M20 12.5A8.5 8.5 0 1 1 11.5 4a7 7 0 0 0 8.5 8.5Z" />
+        </svg>
+        <h2 class="text-center font-display text-3xl tracking-wide text-deep-ocean uppercase md:text-5xl">
+          Choose Your Path
+        </h2>
+        <svg
+          viewBox="0 0 24 24"
+          class="h-6 w-6 shrink-0 text-vishuddha-teal md:h-8 md:w-8"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4" />
+        </svg>
+      </div>
 
-    <div class="mt-16 grid gap-16 md:grid-cols-2 md:gap-10">
-      <!-- Ayurvedic Wellness — the primary direction, slightly larger -->
-      <div class="flex flex-col items-center text-center">
-        <p class="font-accent text-sm uppercase tracking-widest text-deep-ocean/70">Ayurvedic Wellness</p>
-        <div class="mt-4 h-64 w-56 overflow-hidden rounded-[50%] border-4 border-linen shadow-md md:h-80 md:w-64 lg:h-96 lg:w-72">
-          <Image
-            src={ayurvedaImage}
-            alt="Morgan Storm relaxing beside a pool overlooking the jungle"
-            widths={[300, 500, 700]}
-            sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, 224px"
-            loading="lazy"
-            class="h-full w-full object-cover"
-          />
+      <!-- Two offers, connected by a central spire -->
+      <div class="relative mt-10 grid gap-14 px-6 pb-8 md:grid-cols-2 md:gap-6 md:px-10">
+        <!-- Central spire (desktop only) -->
+        <div
+          class="absolute top-0 left-1/2 hidden h-full w-16 -translate-x-1/2 rounded-t-[999px] bg-deep-ocean md:flex md:flex-col md:items-center md:gap-1 md:pt-8"
+          aria-hidden="true"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-warm-sand"></span>
+          <span
+            class="mt-2 font-display text-lg tracking-[0.3em] text-warm-sand uppercase"
+            style="writing-mode: vertical-rl;"
+          >
+            Paths
+          </span>
         </div>
-        <h3 class="-mt-6 max-w-xs rounded-full bg-linen px-6 py-2 font-display text-xl text-deep-ocean shadow-sm md:text-2xl">
-          {pathways.ayurveda.heading}
-        </h3>
-        <p class="mt-4 max-w-sm font-body text-base text-deep-ocean/80">{pathways.ayurveda.supporting}</p>
-        <div class="mt-6">
-          <Button href={pathways.ayurveda.cta.href} label={pathways.ayurveda.cta.label} variant="primary" />
+
+        <!-- Ayurvedic Wellness -->
+        <div class="flex flex-col items-center text-center md:pr-8">
+          <div class="h-64 w-52 overflow-hidden rounded-t-[999px] border-4 border-linen shadow-md md:h-80 md:w-60 lg:h-96 lg:w-72">
+            <Image
+              src={ayurvedaImage}
+              alt="Morgan Storm relaxing beside a pool overlooking the jungle"
+              widths={[300, 500, 700]}
+              sizes="(min-width: 1024px) 272px, (min-width: 768px) 240px, 208px"
+              loading="lazy"
+              class="h-full w-full object-cover"
+            />
+          </div>
+
+          <svg viewBox="0 0 24 24" class="mt-4 h-5 w-5 text-warm-sand" fill="currentColor" aria-hidden="true">
+            <path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z" />
+          </svg>
+          <p class="mt-2 font-accent text-sm tracking-widest text-warm-sand uppercase">+ Ayurvedic Wellness</p>
+          <h3 class="mt-2 font-display text-2xl text-deep-ocean">{pathways.ayurveda.heading}</h3>
+          <div class="my-3 flex items-center justify-center gap-2" aria-hidden="true">
+            <span class="h-px w-8 bg-deep-ocean/25"></span>
+            <span class="h-1.5 w-1.5 rounded-full bg-deep-ocean/30"></span>
+            <span class="h-px w-8 bg-deep-ocean/25"></span>
+          </div>
+          <p class="max-w-sm font-body text-base text-deep-ocean/80">{pathways.ayurveda.supporting}</p>
+          <a
+            href={pathways.ayurveda.cta.href}
+            class="mt-6 inline-flex items-center gap-2 rounded-full bg-deep-ocean px-7 py-3.5 font-body text-base text-linen transition-colors hover:bg-vishuddha-teal"
+          >
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z" />
+            </svg>
+            {pathways.ayurveda.cta.label}
+          </a>
+        </div>
+
+        <!-- Web & Digital Strategy — elegant placeholder until real project imagery exists -->
+        <div class="flex flex-col items-center text-center md:pl-8">
+          <div class="flex h-64 w-52 flex-col items-center justify-center gap-1 overflow-hidden rounded-t-[999px] border-4 border-linen bg-deep-ocean shadow-md md:h-80 md:w-60 lg:h-96 lg:w-72">
+            <span class="font-display text-xl text-linen md:text-2xl">Selected Work</span>
+            <span class="font-body text-xs tracking-wide text-linen/60 uppercase">Visuals coming soon</span>
+          </div>
+
+          <svg viewBox="0 0 24 24" class="mt-4 h-5 w-5 text-vishuddha-teal" fill="currentColor" aria-hidden="true">
+            <path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z" />
+          </svg>
+          <p class="mt-2 font-accent text-sm tracking-widest text-vishuddha-teal uppercase">+ Web &amp; Strategy</p>
+          <h3 class="mt-2 font-display text-2xl text-deep-ocean">{pathways.web.heading}</h3>
+          <div class="my-3 flex items-center justify-center gap-2" aria-hidden="true">
+            <span class="h-px w-8 bg-deep-ocean/25"></span>
+            <span class="h-1.5 w-1.5 rounded-full bg-deep-ocean/30"></span>
+            <span class="h-px w-8 bg-deep-ocean/25"></span>
+          </div>
+          <p class="max-w-sm font-body text-base text-deep-ocean/80">{pathways.web.supporting}</p>
+          <a
+            href={pathways.web.cta.href}
+            class="mt-6 inline-flex items-center gap-2 rounded-full bg-deep-ocean px-7 py-3.5 font-body text-base text-linen transition-colors hover:bg-vishuddha-teal"
+          >
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z" />
+            </svg>
+            {pathways.web.cta.label}
+          </a>
         </div>
       </div>
 
-      <!-- Web & Digital Strategy — elegant branded placeholder until real project imagery exists -->
-      <div class="flex flex-col items-center text-center">
-        <p class="font-accent text-sm uppercase tracking-widest text-deep-ocean/70">Web &amp; Digital Strategy</p>
-        <div class="mt-4 flex h-56 w-56 flex-col items-center justify-center gap-1 overflow-hidden rounded-[50%] border-4 border-linen bg-deep-ocean shadow-md md:h-64 md:w-64 lg:h-72 lg:w-72">
-          <span class="font-display text-xl text-linen md:text-2xl">Selected Work</span>
-          <span class="font-body text-xs tracking-wide text-linen/60 uppercase">Visuals coming soon</span>
+      <!-- Mountain-band footer, echoing the reference's layered horizon -->
+      <div class="relative mt-10 h-16 md:h-24" aria-hidden="true">
+        <div
+          class="absolute inset-0 bg-warm-sand/50"
+          style="clip-path: polygon(0 55%, 15% 30%, 35% 50%, 50% 20%, 65% 45%, 100% 15%, 100% 100%, 0 100%);"
+        >
         </div>
-        <h3 class="-mt-6 max-w-xs rounded-full bg-linen px-6 py-2 font-display text-xl text-deep-ocean shadow-sm md:text-2xl">
-          {pathways.web.heading}
-        </h3>
-        <p class="mt-4 max-w-sm font-body text-base text-deep-ocean/80">{pathways.web.supporting}</p>
-        <div class="mt-6">
-          <Button href={pathways.web.cta.href} label={pathways.web.cta.label} variant="secondary" />
+        <div
+          class="absolute inset-0 bg-vishuddha-teal/20"
+          style="clip-path: polygon(0 80%, 20% 55%, 40% 70%, 60% 40%, 80% 65%, 100% 50%, 100% 100%, 0 100%);"
+        >
         </div>
       </div>
     </div>
