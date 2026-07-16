@@ -1,0 +1,51 @@
+---
+/**
+ * TEMPORARY decorative placeholder graphics — awaiting final supplied
+ * assets (brand mark, divider ornament, button symbols). These are
+ * intentionally simple, generic geometric marks, not a permanent logo,
+ * sacred symbol, mandala, or icon system, and are not a copy of the
+ * Dhi Sangha mark. Swap the SVGs below for real artwork without touching
+ * any layout component — every call site just renders <GraphicPlaceholder
+ * variant="..." />. The pages using these must still look polished if
+ * every instance of this component were simply removed.
+ */
+interface Props {
+  variant?: "brand" | "divider" | "button";
+  class?: string;
+}
+
+const { variant = "divider", class: className = "h-4 w-4" } = Astro.props;
+---
+
+{
+  variant === "brand" && (
+    <svg viewBox="0 0 24 24" class={className} fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M12 3l4 9-4 9-4-9 4-9Z" stroke-linejoin="round" />
+    </svg>
+  )
+}
+
+{
+  variant === "divider" && (
+    <svg viewBox="0 0 24 24" class={className} fill="currentColor" aria-hidden="true">
+      <path d="M12 2l1.5 7L21 12l-7.5 3L12 22l-1.5-7L3 12l7.5-3L12 2Z" />
+    </svg>
+  )
+}
+
+{
+  variant === "button" && (
+    <svg
+      viewBox="0 0 24 24"
+      class={className}
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="3.5" />
+      <path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.8 5.8l1.8 1.8M16.4 16.4l1.8 1.8M18.2 5.8l-1.8 1.8M7.6 16.4l-1.8 1.8" />
+    </svg>
+  )
+}

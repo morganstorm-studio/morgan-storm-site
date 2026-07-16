@@ -1,6 +1,7 @@
 ---
 import { primaryNav, logos } from "../../data/site";
 import Button from "../ui/Button.astro";
+import GraphicPlaceholder from "../ui/GraphicPlaceholder.astro";
 ---
 
 <header class="sticky top-0 z-50 border-b border-teal-mist bg-linen/95 backdrop-blur">
@@ -11,7 +12,10 @@ import Button from "../ui/Button.astro";
         alt=""
         class="hidden h-auto w-[180px] md:block lg:w-[220px]"
       />
-      <span class="font-display text-2xl text-deep-ocean md:hidden">Morgan Storm</span>
+      <span class="flex items-center gap-2 md:hidden">
+        <GraphicPlaceholder variant="brand" class="h-4 w-4 text-vishuddha-teal" />
+        <span class="font-display text-2xl text-deep-ocean">Morgan Storm</span>
+      </span>
     </a>
 
     <nav aria-label="Primary">
