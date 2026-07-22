@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import bgImage from "../../assets/images/walking.jpg";
+import { ayurvedaInvitation } from "../../data/pages/ayurveda";
+import { contactEmail } from "../../data/site";
+---
+
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0" aria-hidden="true">
+    <Image
+      src={bgImage}
+      alt=""
+      widths={[640, 1024, 1440, 1920]}
+      sizes="100vw"
+      loading="lazy"
+      class="h-full w-full object-cover"
+      style="object-position: 50% 30%"
+    />
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-deep-ocean/65 to-deep-ocean/85" aria-hidden="true"></div>
+
+  <div class="container-content relative py-24 text-center text-linen md:py-32">
+    <h2 class="mx-auto max-w-2xl font-display text-display-md">{ayurvedaInvitation.heading}</h2>
+    <p class="mx-auto mt-4 max-w-xl font-body text-lg text-linen/90">{ayurvedaInvitation.supporting}</p>
+    <div class="mt-8 flex justify-center">
+      <a
+        href={ayurvedaInvitation.cta.href}
+        class="inline-flex items-center gap-2 rounded-full bg-vishuddha-teal px-7 py-3.5 font-body text-base text-linen transition-colors hover:bg-warm-sand hover:text-deep-ocean"
+      >
+        {ayurvedaInvitation.cta.label}
+      </a>
+    </div>
+    <a href={`mailto:${contactEmail}`} class="mt-5 inline-block font-body text-sm text-warm-sand hover:text-linen">
+      Questions? Email Morgan.
+    </a>
+  </div>
+</section>

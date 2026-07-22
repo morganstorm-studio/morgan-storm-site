@@ -12,7 +12,7 @@ export const hero: {
     "I work across digital strategy and Ayurvedic wellness, helping people create more clarity, alignment, and momentum in their work and lives.",
   ctas: [
     { label: "Explore Ayurvedic Wellness", href: "/ayurveda", variant: "primary" },
-    { label: "Explore Web & Strategy", href: "/web", variant: "secondary" },
+    { label: "Explore Web & Strategy", href: "/coming-soon", variant: "secondary" },
   ],
 };
 
@@ -61,7 +61,7 @@ export const pathways: {
     heading: "Bring the idea into form.",
     supporting:
       "Strategic websites, communications, and digital systems that help meaningful work become clearer, more usable, and easier to move forward.",
-    cta: { label: "Explore Web & Strategy", href: "/web" },
+    cta: { label: "Explore Web & Strategy", href: "/coming-soon" },
   },
   ayurveda: {
     heading: "Align your life with the wisdom of your body.",
@@ -79,7 +79,7 @@ export const introduction: {
   heading: "I've always been drawn to the place where insight becomes action.",
   copy:
     "My path has moved through communications, leadership, web strategy, entrepreneurship, yoga, coaching, and Ayurveda. Across each chapter, I've been doing the same kind of work: listening closely, making sense of complexity, and helping meaningful ideas take form.",
-  cta: { label: "More About Me", href: "/about" },
+  cta: { label: "More About Me", href: "/coming-soon" },
 };
 
 export const credibility = {
@@ -120,5 +120,5 @@ export const finalCTA: {
   heading: "Ready to find your next step?",
   supporting:
     "Whether you're building something meaningful or looking for a more grounded way forward, I'd love to hear what you're working through.",
-  cta: { label: "Get in Touch", href: "/contact" },
+  cta: { label: "Get in Touch", href: "/coming-soon" },
 };

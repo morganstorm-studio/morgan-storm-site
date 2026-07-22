@@ -8,10 +8,10 @@ export const siteTitle = "Morgan Storm";
  * nav to four entries while still surfacing both routes directly.
  */
 export const primaryNav: NavLink[] = [
-  { label: "Web & Strategy", href: "/web", children: [{ label: "Portfolio", href: "/portfolio" }] },
+  { label: "Web & Strategy", href: "/coming-soon", children: [{ label: "Portfolio", href: "/coming-soon" }] },
   { label: "Ayurveda", href: "/ayurveda" },
-  { label: "About", href: "/about", children: [{ label: "Résumé", href: "/resume" }] },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/coming-soon", children: [{ label: "Résumé", href: "/coming-soon" }] },
+  { label: "Contact", href: "/coming-soon" },
 ];
 
 export const footerNav: NavLink[] = primaryNav;

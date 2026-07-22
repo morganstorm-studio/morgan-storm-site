@@ -1,11 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PageHero from "../components/ui/PageHero.astro";
+import AyurvedaHero from "../components/ayurveda/AyurvedaHero.astro";
+import AccessibleIntro from "../components/ayurveda/AccessibleIntro.astro";
+import WhoMorganHelps from "../components/ayurveda/WhoMorganHelps.astro";
+import ServicePackages from "../components/ayurveda/ServicePackages.astro";
+import ConsultationDetail from "../components/ayurveda/ConsultationDetail.astro";
+import HowToBegin from "../components/ayurveda/HowToBegin.astro";
+import AboutMorganAyurveda from "../components/ayurveda/AboutMorganAyurveda.astro";
+import AyurvedaFAQ from "../components/ayurveda/AyurvedaFAQ.astro";
+import AyurvedaInvitation from "../components/ayurveda/AyurvedaInvitation.astro";
 ---
 
 <BaseLayout
   title="Ayurvedic Wellness — Morgan Storm"
-  description="Ayurvedic counseling, coaching, workshops, and A Way Back from Morgan Storm."
+  description="Personalized Ayurvedic counseling to help you understand your body's unique needs and build a way of living that truly supports you."
 >
-  <PageHero heading="Ayurvedic Wellness" supporting="This page is coming soon." />
+  <AyurvedaHero />
+  <AccessibleIntro />
+  <WhoMorganHelps />
+  <ServicePackages />
+  <ConsultationDetail />
+  <HowToBegin />
+  <AboutMorganAyurveda />
+  <AyurvedaFAQ />
+  <AyurvedaInvitation />
 </BaseLayout>

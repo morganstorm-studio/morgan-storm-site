@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import dividerMark from "../../assets/ayurveda-wireframe/mark-divider.png";
+import { consultationDetail } from "../../data/pages/ayurveda";
+---
+
+<section class="bg-teal-mist/40">
+  <div class="container-content py-16 md:py-24">
+    <div class="grid gap-14 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5">
+        <p class="font-accent text-sm uppercase tracking-widest text-vishuddha-teal">{consultationDetail.eyebrow}</p>
+        <h2 class="mt-4 font-display text-3xl leading-snug text-deep-ocean md:text-4xl">{consultationDetail.heading}</h2>
+        {
+          consultationDetail.paragraphs.map((paragraph) => (
+            <p class="mt-5 font-body text-base leading-relaxed text-deep-ocean/85">{paragraph}</p>
+          ))
+        }
+        <p class="mt-6 border-l-2 border-warm-sand pl-5 font-accent text-base text-deep-ocean/90 italic">
+          {consultationDetail.pullQuote}
+        </p>
+        <p class="mt-5 font-body text-sm text-deep-ocean/70">{consultationDetail.note}</p>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+          {
+            consultationDetail.topics.map((topic) => (
+              <div>
+                <h3 class="font-display text-lg text-deep-ocean">{topic.title}</h3>
+                <Image
+                  src={dividerMark}
+                  alt=""
+                  width={105}
+                  height={13}
+                  class="mt-2 mb-3 h-[13px] w-[105px] opacity-60"
+                  aria-hidden="true"
+                />
+                <p class="font-body text-sm leading-relaxed text-deep-ocean/80">{topic.description}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-10 rounded-2xl bg-warm-sand/25 p-7">
+          <p class="font-accent text-xs uppercase tracking-wide text-deep-ocean/80">{consultationDetail.whatThisIsNot.heading}</p>
+          <p class="mt-3 font-body text-sm leading-relaxed text-deep-ocean/85">
+            {consultationDetail.whatThisIsNot.items.join(" · ")}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

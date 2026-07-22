@@ -1,0 +1,46 @@
+---
+import { whoMorganHelps } from "../../data/pages/ayurveda";
+---
+
+<section class="bg-nadi-flow">
+  <div class="container-content py-16 text-linen md:py-24">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="font-accent text-sm uppercase tracking-wide text-linen/90">{whoMorganHelps.transition}</p>
+      <div class="mx-auto mt-5 h-1.5 w-1.5 rotate-45 border border-warm-sand"></div>
+    </div>
+
+    <div class="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
+      <div>
+        <h3 class="font-display text-2xl text-linen md:text-3xl">{whoMorganHelps.now.heading}</h3>
+        <ul class="mt-6 space-y-4 font-body text-base leading-relaxed text-linen/90">
+          {
+            whoMorganHelps.now.items.map((item) => (
+              <li class="flex gap-3">
+                <span class="text-warm-sand" aria-hidden="true">—</span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display text-2xl text-linen md:text-3xl">{whoMorganHelps.together.heading}</h3>
+        <ul class="mt-6 space-y-4 font-body text-base leading-relaxed text-linen/90">
+          {
+            whoMorganHelps.together.items.map((item) => (
+              <li class="flex gap-3">
+                <span class="text-warm-sand" aria-hidden="true">—</span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-16 max-w-2xl rounded-2xl border border-linen/25 px-8 py-9 text-center">
+      <p class="font-body text-lg text-linen">{whoMorganHelps.closing}</p>
+    </div>
+  </div>
+</section>

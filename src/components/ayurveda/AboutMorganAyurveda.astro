@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import portraitImage from "../../assets/images/headshot.jpg";
+import edgeImage from "../../assets/ayurveda-wireframe/about-edge.jpg";
+import { aboutMorganAyurveda } from "../../data/pages/ayurveda";
+---
+
+<section class="relative overflow-hidden bg-teal-mist/30">
+  <div class="absolute inset-y-0 right-0 hidden w-[22%] lg:block" aria-hidden="true">
+    <Image
+      src={edgeImage}
+      alt=""
+      widths={[400, 600]}
+      sizes="22vw"
+      loading="lazy"
+      class="h-full w-full object-cover"
+      style="object-position: 60% 40%"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-deep-ocean/55 to-deep-ocean/75"></div>
+  </div>
+
+  <div class="container-content relative py-16 lg:pr-[24%] md:py-24">
+    <div class="grid items-center gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <Image
+          src={portraitImage}
+          alt="Morgan Storm seated outdoors in a garden courtyard, smiling"
+          widths={[300, 500, 700]}
+          sizes="(min-width: 1024px) 300px, 70vw"
+          loading="lazy"
+          class="aspect-3/4 w-full max-w-[320px] rounded-2xl border-4 border-warm-sand object-cover object-top shadow-lg"
+        />
+      </div>
+
+      <div class="lg:col-span-8">
+        <p class="font-accent text-sm uppercase tracking-widest text-vishuddha-teal">{aboutMorganAyurveda.eyebrow}</p>
+        <h2 class="mt-4 font-display text-display-md text-deep-ocean">{aboutMorganAyurveda.heading}</h2>
+        {
+          aboutMorganAyurveda.paragraphs.map((paragraph) => (
+            <p class="mt-5 max-w-xl font-body text-base leading-relaxed text-deep-ocean/85">{paragraph}</p>
+          ))
+        }
+        <p class="mt-5 max-w-xl font-accent text-base text-deep-ocean/90 italic">{aboutMorganAyurveda.closing}</p>
+      </div>
+    </div>
+  </div>
+</section>
