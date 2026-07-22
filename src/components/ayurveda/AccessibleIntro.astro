@@ -1,11 +1,22 @@
 ---
 import { Image } from "astro:assets";
 import portraitImage from "../../assets/ayurveda-wireframe/accessible-intro-portrait.jpg";
-import edgeImage from "../../assets/ayurveda-wireframe/accessible-intro-edge.jpg";
+import edgeImage from "../../assets/ayurveda-wireframe/intro_leaves.jpg";
+import leafAccent from "../../assets/ayurveda-wireframe/leaves-15.png";
 import { accessibleIntro } from "../../data/pages/ayurveda";
 ---
 
 <section class="relative overflow-hidden bg-linen">
+  <Image
+    src={leafAccent}
+    alt=""
+    widths={[300, 500]}
+    sizes="320px"
+    loading="lazy"
+    class="pointer-events-none absolute -top-10 -left-10 z-0 hidden w-64 rotate-180 opacity-20 lg:block"
+    aria-hidden="true"
+  />
+
   <div class="absolute inset-y-0 right-0 hidden w-[26%] lg:block" aria-hidden="true">
     <Image
       src={edgeImage}

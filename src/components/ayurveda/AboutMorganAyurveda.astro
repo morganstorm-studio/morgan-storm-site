@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import portraitImage from "../../assets/images/headshot.jpg";
+import portraitImage from "../../assets/ayurveda-wireframe/about-portrait-goldenhour.png";
 import edgeImage from "../../assets/ayurveda-wireframe/about-edge.jpg";
+import leafAccent from "../../assets/ayurveda-wireframe/leaves-10.png";
 import { aboutMorganAyurveda } from "../../data/pages/ayurveda";
 ---
 
@@ -22,14 +23,25 @@ import { aboutMorganAyurveda } from "../../data/pages/ayurveda";
   <div class="container-content relative py-16 lg:pr-[24%] md:py-24">
     <div class="grid items-center gap-10 lg:grid-cols-12">
       <div class="lg:col-span-4">
-        <Image
-          src={portraitImage}
-          alt="Morgan Storm seated outdoors in a garden courtyard, smiling"
-          widths={[300, 500, 700]}
-          sizes="(min-width: 1024px) 300px, 70vw"
-          loading="lazy"
-          class="aspect-3/4 w-full max-w-[320px] rounded-2xl border-4 border-warm-sand object-cover object-top shadow-lg"
-        />
+        <div class="relative w-full max-w-[320px]">
+          <Image
+            src={portraitImage}
+            alt="Morgan Storm smiling, chin resting on her hand, golden hour light"
+            widths={[300, 500, 700]}
+            sizes="(min-width: 1024px) 300px, 70vw"
+            loading="lazy"
+            class="relative z-10 aspect-3/4 w-full rounded-2xl border-4 border-warm-sand object-cover shadow-lg"
+          />
+          <Image
+            src={leafAccent}
+            alt=""
+            widths={[300, 500]}
+            sizes="220px"
+            loading="lazy"
+            class="pointer-events-none absolute -bottom-8 -left-10 z-20 w-40 opacity-80 md:w-52"
+            aria-hidden="true"
+          />
+        </div>
       </div>
 
       <div class="lg:col-span-8">

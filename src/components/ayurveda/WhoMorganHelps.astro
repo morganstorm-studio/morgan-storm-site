@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import transitionMark from "../../assets/ayurveda-wireframe/mark-transition.png";
+import quoteFrame from "../../assets/ayurveda-wireframe/mark-frame.png";
 import { whoMorganHelps } from "../../data/pages/ayurveda";
 ---
 
@@ -6,7 +9,15 @@ import { whoMorganHelps } from "../../data/pages/ayurveda";
   <div class="container-content py-16 text-linen md:py-24">
     <div class="mx-auto max-w-2xl text-center">
       <p class="font-accent text-sm uppercase tracking-wide text-linen/90">{whoMorganHelps.transition}</p>
-      <div class="mx-auto mt-5 h-1.5 w-1.5 rotate-45 border border-warm-sand"></div>
+      <Image
+        src={transitionMark}
+        alt=""
+        widths={[200, 300]}
+        sizes="140px"
+        loading="lazy"
+        class="mx-auto mt-5 w-32 rotate-180 opacity-80 md:w-40"
+        aria-hidden="true"
+      />
     </div>
 
     <div class="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
@@ -39,8 +50,17 @@ import { whoMorganHelps } from "../../data/pages/ayurveda";
       </div>
     </div>
 
-    <div class="mx-auto mt-16 max-w-2xl rounded-2xl border border-linen/25 px-8 py-9 text-center">
-      <p class="font-body text-lg text-linen">{whoMorganHelps.closing}</p>
+    <div class="relative mx-auto mt-16 max-w-2xl px-8 py-9 text-center">
+      <Image
+        src={quoteFrame}
+        alt=""
+        widths={[600, 900]}
+        sizes="640px"
+        loading="lazy"
+        class="pointer-events-none absolute inset-0 h-full w-full opacity-70"
+        aria-hidden="true"
+      />
+      <p class="relative font-body text-lg text-linen">{whoMorganHelps.closing}</p>
     </div>
   </div>
 </section>

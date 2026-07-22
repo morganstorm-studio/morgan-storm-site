@@ -1,9 +1,30 @@
 ---
+import { Image } from "astro:assets";
+import leafAccent from "../../assets/ayurveda-wireframe/leaves-15.png";
 import { servicePackages } from "../../data/pages/ayurveda";
 ---
 
-<section class="bg-linen">
-  <div class="container-content py-16 md:py-24">
+<section class="relative overflow-hidden bg-linen">
+  <Image
+    src={leafAccent}
+    alt=""
+    widths={[400, 600]}
+    sizes="420px"
+    loading="lazy"
+    class="pointer-events-none absolute -bottom-16 -left-16 z-0 hidden w-96 -scale-x-100 opacity-15 lg:block"
+    aria-hidden="true"
+  />
+  <Image
+    src={leafAccent}
+    alt=""
+    widths={[400, 600]}
+    sizes="420px"
+    loading="lazy"
+    class="pointer-events-none absolute -right-16 -bottom-16 z-0 hidden w-96 rotate-180 opacity-15 lg:block"
+    aria-hidden="true"
+  />
+
+  <div class="container-content relative py-16 md:py-24">
     <div class="mx-auto max-w-2xl text-center">
       <h2 class="font-display text-display-md text-deep-ocean">{servicePackages.heading}</h2>
       <p class="mt-4 font-body text-lg text-deep-ocean/80">{servicePackages.supporting}</p>
