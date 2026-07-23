@@ -83,16 +83,6 @@ export const introduction: {
   cta: { label: "More About Me", href: "/coming-soon" },
 };
 
-export const credibility = {
-  items: [
-    "8+ years across communications, implementation, operations, and organizational leadership",
-    "600-hour Ayurvedic Wellness Counselor training",
-    "200-hour registered yoga-teacher training",
-    "Certified life-coaching background",
-    "Experience building and refining 10+ websites",
-  ],
-};
-
 export const awayBack: {
   heading: string;
   description: string;
