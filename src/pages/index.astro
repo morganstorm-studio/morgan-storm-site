@@ -1,33 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Section from "../components/ui/Section.astro";
-import HomeHero from "../components/home/HomeHero.astro";
-import PathwaysSection from "../components/home/PathwaysSection.astro";
-import HomeIntroduction from "../components/home/HomeIntroduction.astro";
-import AWayBackFeature from "../components/home/AWayBackFeature.astro";
-import FinalCTA from "../components/home/FinalCTA.astro";
-import { sharedThread } from "../data/pages/home";
-
-const title = "Morgan Storm — Strategic Communications, Digital Strategy & Ayurvedic Wellness";
-const description =
-  "Morgan Storm — strategic communications, digital strategy, and Ayurvedic wellness. I turn complex ideas into clear, grounded paths forward.";
+import PageHero from "../components/ui/PageHero.astro";
+import Button from "../components/ui/Button.astro";
 ---
 
-<BaseLayout title={title} description={description}>
-  <HomeHero />
-
-  <Section background="warm-sand">
-    <div class="mx-auto max-w-2xl text-center">
-      <h2 class="font-display text-3xl text-deep-ocean md:text-5xl">{sharedThread.heading}</h2>
-      <p class="mt-5 font-body text-lg text-deep-ocean/80">{sharedThread.supporting}</p>
-    </div>
-  </Section>
-
-  <PathwaysSection />
-
-  <HomeIntroduction />
-
-  <AWayBackFeature />
-
-  <FinalCTA />
+<BaseLayout title="Morgan Storm" description="Morgan Storm — strategic communications, digital strategy, and Ayurvedic wellness.">
+  <PageHero heading="Coming Soon" supporting="The full site experience is still being built. In the meantime, you can explore Ayurvedic Wellness counseling." />
+  <div class="container-content pb-24 text-center">
+    <Button href="/ayurveda" label="Explore Ayurvedic Wellness" variant="secondary" />
+  </div>
 </BaseLayout>

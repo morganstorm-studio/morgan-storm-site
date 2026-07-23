@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Button from "../ui/Button.astro";
 import portraitImage from "../../assets/ayurveda-wireframe/about-portrait-goldenhour.png";
 import edgeImage from "../../assets/ayurveda-wireframe/about-edge.jpg";
 import leafAccent from "../../assets/ayurveda-wireframe/leaves-15.png";
@@ -56,7 +57,14 @@ import { aboutMorganAyurveda } from "../../data/pages/ayurveda";
             <p class="mt-6 max-w-lg font-body text-base leading-relaxed text-deep-ocean/85">{paragraph}</p>
           ))
         }
-        <p class="mt-6 max-w-lg font-accent text-base text-deep-ocean/90 italic">{aboutMorganAyurveda.closing}</p>
+        {aboutMorganAyurveda.cta && (
+          <div class="mt-8">
+            <Button href={aboutMorganAyurveda.cta.href} label={aboutMorganAyurveda.cta.label} variant="primary" />
+          </div>
+        )}
+        {aboutMorganAyurveda.closing && (
+          <p class="mt-6 max-w-lg font-accent text-base text-deep-ocean/90 italic">{aboutMorganAyurveda.closing}</p>
+        )}
       </div>
     </div>
   </div>

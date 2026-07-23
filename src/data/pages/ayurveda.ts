@@ -8,37 +8,38 @@ export const ayurvedaHero: {
   cta: CTA;
 } = {
   eyebrow: "Personalized Ayurvedic Wellness Counseling",
-  headline: "Your body is trying to tell you something. Let's figure out what it is saying.",
+  headline: "Come Back To Yourself",
   supporting: [
-    "Maybe you are tired of being tired. Your digestion feels unpredictable. Your hormones feel off. Or you have been told that everything looks normal, even though you know you do not feel like yourself.",
-    "Ayurveda helps us look at the whole picture so we can understand what your body may be responding to and create personalized food, lifestyle, and routine recommendations that actually make sense for you.",
+    "I support capable, ambitious women who are used to holding everything together uncover what your body is asking for, make meaningful changes, and help you feel more connected to yourself again.",
   ],
   note: "Complimentary 20 minute conversation. You do not need to know your dosha or have everything figured out before we talk.",
   cta: { label: "Book a Discovery Call", href: "https://calendar.app.google/7z7nWXgTYaoJVVVv6" },
 };
 
 export const accessibleIntro = {
-  eyebrow: "A Different Way to Understand Wellness",
-  heading: "What if your well-being didn't begin with another set of rules?",
+  eyebrow: "A Personalized Approach to Wellness",
+  heading: "Tired of one size fits all wellness advice?",
   paragraphs: [
-    "Ayurveda is a traditional system of holistic wellness built around a simple idea: different people need different kinds of support. Your natural constitution, digestion, sleep, stress, environment, routines, and current stage of life all affect what helps you feel balanced. Instead of following a generic wellness plan, Ayurvedic counseling helps you notice your individual patterns and make thoughtful changes that fit your real life.",
-    "Recommendations may include food, meal timing, daily rhythms, movement, rest, meditation, breathwork, and other supportive practices.",
+    "Maybe you have tried the diets, supplements, routines, and health advice that seemed to work for someone else. But your energy is still low, your digestion feels unpredictable, your hormones feel off, or you keep being told everything looks normal when you know you do not feel like yourself.",
+    "Ayurveda starts with a simple idea: different bodies need different things. The same food, routine, or wellness practice can support one person and leave another feeling bloated, anxious, sluggish, or depleted. Even the same symptom can have a different root cause from person to person.",
+    "That is why we look at the whole picture, including your food, digestion, sleep, stress, cycle, routines, and current season of life. From there, we figure out which recommendations matter most for you and what you can realistically put into practice.",
   ],
+  featuredStatement: "Your body is giving you information. Ayurveda helps you understand what it is asking for.",
 };
 
 export const whoMorganHelps = {
-  heading: "Where You Are Now and Where We Can Go",
+  heading: "You are doing your best, but something still feels off.",
   lead: "You are doing your best, but something still feels off.",
   intro:
-    "You may be productive, capable, and used to holding a lot together. From the outside, you probably look like you are doing fine. But your body may be telling a different story.",
+    "You may be capable, productive, and used to holding a lot together. From the outside, you probably look like you are doing fine. But your body may be telling a different story.",
   now: {
     heading: "Where you may be now",
     items: [
-      "Your energy feels low, inconsistent, or completely drained no matter how much you rest.",
+      "You are tired more often than you think you should be, even when you are trying to take care of yourself.",
       "Stress, travel, irregular meals, or a busy schedule quickly show up as bloating, gas, constipation, cravings, or unpredictable digestion.",
-      "Your hormones or cycle feel off, but you are not sure what your body is actually asking for.",
-      "You have tried health advice that worked for someone else, but it did not work the same way for you.",
-      "You have been told that everything looks normal, even though you know you do not feel fine.",
+      "Your hormones or cycle feel off, but you are not sure what your body is asking for.",
+      "You have tried advice that worked for someone else, but it did not work the same way for you.",
+      "You have been told everything looks normal, even though you know you do not feel fine.",
       "You want to feel better, but you do not have hours every day to follow a perfect wellness routine.",
     ],
   },
@@ -46,8 +47,8 @@ export const whoMorganHelps = {
     heading: "What we can build together",
     items: [
       "A clearer understanding of what your symptoms may be responding to.",
-      "Food and meal rhythms that support your digestion, energy, hormones, and everyday life.",
-      "Simple routines that fit your real schedule and capacity.",
+      "Food and meal rhythms that support your digestion, energy, and hormones.",
+      "Simple routines that fit your actual schedule and capacity.",
       "More awareness of how stress, sleep, food, movement, travel, and your cycle affect one another.",
       "A personalized plan for helping your body return to a steadier place.",
       "More confidence in knowing what your body needs and how to respond.",
@@ -63,6 +64,7 @@ export interface ServicePackage {
   title: string;
   price: string;
   priceNote?: string;
+  minimumTerm?: string;
   description: string;
   features: string[];
   bestFor: string;
@@ -74,118 +76,129 @@ export const servicePackages: {
   supporting: string;
   packages: ServicePackage[];
   sharedCta: { supporting: string; cta: CTA };
-  mealCompanion: { eyebrow: string; heading: string; description: string; example: string };
+  mealCompanion: { eyebrow: string; heading: string; description: string; examples: string[] };
 } = {
   heading: "Choose the support that meets you where you are.",
-  supporting: "Personalized insight, a clear plan, or weekly support integrating it into your life.",
+  supporting: "You may only need help understanding one concern. You may want a complete personalized plan. Or you may know that receiving a plan is not the same as actually putting it into practice. You do not need to know which option is right before we talk. That is what the discovery call is for.",
   packages: [
     {
-      eyebrow: "Comprehensive Ayurvedic Consultation",
-      tagline: "Personalized insight into how you feel.",
-      title: "One private 90-minute session",
-      price: "$110",
+      eyebrow: "Focused insight into your body and current patterns",
+      tagline: "Comprehensive Ayurvedic Consultation",
+      title: "One private 90 minute session",
+      price: "Introductory rate: $135",
       priceNote: "Normally $155",
-      description: "A focused introduction to your constitution, patterns, and what may help.",
+      description: "This consultation gives us space to explore your health history, digestion, energy, sleep, stress, hormones, routines, lifestyle, and whatever has been making you feel like something is off.\n\nYou will leave with a clearer understanding of what your body may be responding to and specific recommendations for your next steps.",
       features: [
-        "Health & lifestyle intake, dosha assessment",
-        "Private 90-minute consultation",
+        "Comprehensive health and lifestyle intake",
+        "Dosha and current imbalance assessment",
+        "One private 90 minute consultation",
         "Personalized Ayurvedic recommendations",
-        "Access to the Meal Planning Companion",
+        "Access to your Ayurvedic Meal Planning Companion",
       ],
-      bestFor: "Best for: new to Ayurveda, or want focused insight.",
+      bestFor: "Best for someone who is new to Ayurveda or wants focused guidance around a specific concern.",
     },
     {
-      eyebrow: "Founding Client Package",
-      tagline: "Insight, plus a clear plan.",
+      eyebrow: "A complete assessment, personalized plan, and support putting it into practice",
+      tagline: "Founding Client Package",
       title: "Three private sessions",
-      price: "Introductory offer: $330",
+      price: "Introductory rate: $330",
       priceNote: "Normally $550",
-      description: "A full assessment, a personalized plan, and support putting it into practice.",
+      description: "Sometimes one conversation is enough to create clarity. But meaningful change often needs more space.\n\nThis package gives us time to understand your patterns, create a personalized food, lifestyle, and routine plan, and support you as you begin putting it into practice.\n\nWe will identify what matters most, introduce changes in a thoughtful order, and adjust the plan based on how your body responds.",
       features: [
-        "Consultation + two follow-up sessions",
-        "Health & lifestyle intake, dosha assessment",
-        "Personalized food, lifestyle & routine plan",
-        "Meal Planning Companion access",
+        "Comprehensive health and lifestyle intake",
+        "Dosha and current imbalance assessment",
+        "One private 90 minute consultation",
+        "One personalized recommendations session",
+        "One follow up session for support and refinement",
+        "Personalized food, lifestyle, and daily routine plan",
+        "Access to your Ayurvedic Meal Planning Companion",
       ],
-      bestFor: "Best for: want a clear plan and support using it.",
+      bestFor: "Best for someone who wants a clear, personalized plan and help making it work in real life.",
       recommended: true,
     },
     {
-      eyebrow: "Ongoing Ayurvedic Coaching",
-      tagline: "A plan, integrated week by week.",
+      eyebrow: "Consistent support as you create meaningful changes week by week",
+      tagline: "Ongoing Ayurvedic Coaching",
       title: "Rebuild Your Foundations",
-      price: "$550/month introductory rate",
-      priceNote: "Normally $850/month · 3-mo minimum",
-      description:
-        "Includes your initial consultation and plan, plus weekly support integrating it into your meals, routines, work, travel, and daily life.",
+      price: "Introductory rate: $550/month",
+      priceNote: "Normally $850/month",
+      minimumTerm: "Three-month minimum",
+      description: "We begin with a comprehensive consultation and personalized plan, then meet weekly to help you put your recommendations into practice. Together, we notice what is changing, troubleshoot what is not working, and adapt your plan as your body and life evolve.",
       features: [
-        "Initial consultation & personalized plan",
+        "Comprehensive consultation and personalized plan",
         "Weekly private coaching sessions",
-        "Step-by-step implementation",
-        "Ongoing troubleshooting as life changes",
+        "Support with food, sleep, boundaries, and meditation",
+        "Movement, stress, and cycle support",
+        "Step by step implementation support",
+        "Adjustments as your needs, symptoms, and schedule change",
+        "Troubleshooting, accountability, and encouragement",
+        "Access to your Ayurvedic Meal Planning Companion",
       ],
-      bestFor: "Best for: want consistent support making it last.",
+      bestFor: "Best for someone who wants consistent, personalized support and accountability.",
     },
   ],
   sharedCta: {
-    supporting: "Not sure which level of support is right for you? We'll talk through it together.",
+    supporting: "Not sure where to begin? That is completely okay. Tell me what has been going on, and we will talk through which level of support makes the most sense.",
     cta: { label: "Book a Discovery Call", href: "https://calendar.app.google/7z7nWXgTYaoJVVVv6" },
   },
   mealCompanion: {
-    eyebrow: "Included with Every Paid Service",
+    eyebrow: "Included With Every Paid Service",
     heading: "Your Ayurvedic Meal Planning Companion",
-    description:
-      "A personalized ChatGPT resource that helps turn your recommendations into realistic meal ideas, grocery lists, recipes, and weekly plans.",
-    example: "“What can I make with what's in my fridge?”",
+    description: "Knowing which foods support you is helpful. Figuring out what to make for dinner on a random Tuesday is a different challenge.\n\nYour Ayurvedic Meal Planning Companion is a personalized ChatGPT resource created around your individual food recommendations. Use it for realistic meal ideas, recipes, grocery lists, substitutions, and weekly plans based on your schedule and what you already have at home.",
+    examples: [
+      "What can I make with what I already have?",
+      "Is this meal good for my dosha?",
+    ],
   },
 };
 
 export const consultationDetail = {
-  eyebrow: "Consultation",
-  heading: "A whole-person consultation — not a quick dosha quiz.",
+  eyebrow: "Your First Consultation",
+  heading: "A whole person consultation, not a quick dosha quiz.",
   paragraphs: [
-    "Your first session is a comprehensive, private conversation about your health history, how your body functions day to day, and the life your recommendations need to work within.",
-    "We go beyond a list of symptoms to understand the patterns connecting your digestion, energy, sleep, stress, routines, environment, and past experiences.",
+    "A real Ayurvedic consultation goes much deeper than taking a short quiz and being told to drink warm water.",
+    "We talk about your health history, digestion, bowel movements, appetite, cravings, sleep, energy, cycle, hormones, stress, routines, medications, coping habits, and what your life actually looks like.",
+    "I want the honest version, not the version you think sounds healthy enough. The more honestly we can look at what is happening, the better we can understand what your body may be responding to and where change could make the biggest difference.",
   ],
   pullQuote:
-    "These questions are not about finding something you are doing wrong. They help us understand the full context of what your body is responding to.",
-  note: "You are always welcome to pause, ask why something is relevant, or choose not to discuss something you are not comfortable sharing.",
+    "You are always welcome to pause, ask why something is relevant, or choose not to discuss something you are not comfortable sharing. You remain in control of what you share.",
   topics: [
     {
       title: "Your health story",
       description:
-        "Family history, current concerns, past diagnoses, surgeries, medications, and what you've already tried.",
+        "Your current concerns, family history, diagnoses, surgeries, medications, treatments, and what you have already tried.",
     },
     {
-      title: "Digestion & elimination",
+      title: "Digestion and elimination",
       description:
-        "Appetite, cravings, bloating, bowel movements, and how digestion shifts with stress, travel, or disrupted routines. Yes, we talk about poop.",
+        "Your appetite, cravings, bloating, gas, bowel movements, and how your digestion changes with stress, travel, your cycle, or irregular routines. Yes, we talk about poop.",
     },
     {
-      title: "Hormones & menstrual health",
-      description: "Cycle, periods, PMS, hormonal patterns, and reproductive history, when relevant. Yes, we talk about periods too.",
+      title: "Hormones and menstrual health",
+      description: "Your cycle, periods, PMS, hormonal patterns, fertility, and reproductive history when relevant. Yes, we talk about periods too.",
     },
     {
-      title: "Energy, sleep & stress",
-      description: "Daily energy, sleep quality, stress response, mood, and what drains or restores you.",
+      title: "Energy, sleep, and stress",
+      description: "Your energy throughout the day, how you sleep, what stress feels like in your body, and what tends to drain or restore you.",
     },
     {
       title: "Your actual life",
       description:
-        "Work, travel, meals, movement, rest, morning and evening routines, relationships, and realistic capacity for change.",
+        "Your work, travel, meals, movement, rest, relationships, responsibilities, and what you realistically have the capacity to change.",
     },
     {
-      title: "Substances & coping habits",
+      title: "Coping habits",
       description:
-        "Caffeine, alcohol, cannabis, nicotine, and other coping habits — discussed without judgment, only as they relate to how you feel.",
+        "Caffeine, alcohol, cannabis, nicotine, emotional eating, scrolling, and the things you reach for when life feels like a lot. There is no moral judgment here. We are simply looking at the whole picture.",
     },
   ],
   whatThisIsNot: {
-    heading: "What this is not",
+    heading: "What This Is Not",
     items: [
-      "Not a medical diagnosis or replacement for licensed care",
-      "Not a rigid protocol handed over after one conversation",
-      "Not an expectation that you change everything at once",
+      "This is not a medical diagnosis or replacement for care from a licensed provider.",
+      "This is not the same plan copied and pasted for every person.",
+      "This is not an expectation that you change your entire life overnight.",
+      "This is not about blaming you for your symptoms. It is a space to understand your patterns, explore what may be contributing to how you feel, and create a more supportive way forward.",
     ],
   },
 };
@@ -195,79 +208,80 @@ export const howToBegin: {
   steps: { number: string; title: string; description: string }[];
   cta: CTA;
 } = {
-  heading: "How to begin.",
+  heading: "Here is how we get started.",
   steps: [
     {
       number: "1",
-      title: "Choose how you want to begin",
+      title: "Book a discovery call",
       description:
-        "Book a consultation or package directly, or start with a complimentary intro call if you're unsure which fits, or considering ongoing coaching.",
+        "We will spend 20 minutes talking about what has been going on, what you are looking for, and whether working together feels like a good fit.",
     },
     {
       number: "2",
-      title: "Complete your forms",
+      title: "Choose your support",
       description:
-        "You'll receive a health & lifestyle intake, a dosha assessment, and prep instructions — complete at least 48 hours before your appointment.",
+        "After the call, I will send you the appropriate agreement, payment link, intake materials, and scheduling information.",
     },
     {
       number: "3",
-      title: "Meet with Morgan",
-      description: "Attend your private 90-minute consultation. Recommendations and next steps depend on the service you select.",
+      title: "Complete your consultation",
+      description: "Complete your intake and dosha assessment at least 48 hours before your first session. Then we will sit down for your private 90 minute consultation.",
     },
   ],
   cta: { label: "Book a Discovery Call", href: "https://calendar.app.google/7z7nWXgTYaoJVVVv6" },
 };
 
 export const aboutMorganAyurveda = {
-  eyebrow: "Your Counselor",
+  eyebrow: "Meet Your Counselor",
   heading: "Hi, I'm Morgan.",
   paragraphs: [
-    "I came to Ayurveda after years of trying to hold a lot at once—work, healing, ambition, and the pressure to keep moving even when my body was asking for something different.",
-    "Through my own experiences with illness, stress, and major life changes, I learned that feeling better did not come from more rules or more self-control. It came from understanding what my body was communicating and building support around the life I was actually living.",
-    "Now, as a 600-hour Ayurvedic Wellness Counselor and 200-hour yoga teacher, I help thoughtful, high-capacity women understand the patterns behind their digestion, energy, sleep, stress, and routines—and create practical changes they can realistically sustain.",
+    "I know what it feels like to keep pushing while quietly knowing something is not right. Leaving law school, navigating chronic stress, and facing thyroid cancer changed the course of my life. What once felt like everything falling apart became the beginning of learning how to listen to my body and build a life that felt more like my own.",
+    "I set off to complete my yoga teacher training, life coach certification, and 600 hour Ayurvedic Wellness Counselor training. Ayurveda teaches that balance is not something we achieve once and keep forever. Life happens. We lose our rhythm. What matters is learning to recognize what your body needs and knowing how to return.",
+    "Now, I support capable, ambitious women who are used to holding everything together. I help them understand their bodies, make meaningful changes, and feel more connected to themselves again.",
   ],
-  closing: "My approach is grounded, compassionate, and rooted in the belief that your body is not a problem to fix. It is something you can learn to understand and trust.",
+  cta: { label: "Let Me Support You", href: "https://calendar.app.google/7z7nWXgTYaoJVVVv6" },
+  closing: "",
 };
 
 export const ayurvedaFAQ: { heading: string; items: { question: string; answer: string }[] } = {
   heading: "Frequently asked questions",
   items: [
     {
-      question: "Do I need to book an introductory call first?",
+      question: "Do I need to book a discovery call first?",
       answer:
-        "No. If you already know you'd like to begin, book and pay for a consultation or package directly. The complimentary call is for new clients, coaching-curious visitors, or anyone unsure which service fits.",
+        "Yes. New clients begin with a complimentary discovery call so we can talk about what has been going on, answer your questions, and decide which service feels like the best fit.",
     },
     {
       question: "Do I need to know my dosha?",
-      answer: "No. Exploring your constitution and current patterns is part of the process.",
+      answer: "Not at all. Exploring your constitution and current patterns is part of the intake and consultation process.",
     },
     {
       question: "Will I need to follow a strict Ayurvedic diet?",
       answer:
-        "No. Recommendations are personalized and introduced gradually — the goal is to make eating more supportive, not more stressful.",
+        "You may receive specific food recommendations, and depending on what is happening, they may be fairly comprehensive. But they will be personalized to you. We will focus on what matters most and what you can realistically put into practice. You do not have to do everything perfectly for the work to help.",
     },
     {
       question: "Are appointments virtual or in person?",
-      answer: "[Placeholder — confirm available formats]",
+      answer: "Appointments are currently offered virtually, so you can join from the comfort and privacy of your home.",
     },
     {
       question: "Is Ayurvedic counseling medical treatment?",
       answer:
-        "No. Ayurvedic wellness counseling is educational and supportive — it does not diagnose disease, prescribe medication, or replace treatment from a licensed medical provider.",
+        "No. Ayurvedic wellness counseling is educational and supportive. It does not diagnose disease, prescribe medication, or replace treatment from a licensed healthcare professional. It can be used alongside the care you already receive.",
     },
     {
       question: "Do I have to discuss everything listed in the consultation section?",
       answer:
-        "No. You're welcome to pause, ask why a question is relevant, or decline to discuss something. The consultation is collaborative and consent-based.",
+        "No. You are always welcome to pause, ask why a question matters, or choose not to discuss something. I will invite honesty, but you remain in control of what you share.",
     },
     {
-      question: "Can I begin with one consultation and move into a package later?",
+      question: "Can I begin with one consultation and receive more support later?",
       answer:
-        "Yes. Many clients start with a single consultation and continue into the three-session package or ongoing coaching once they know it's a good fit.",
+        "Yes. You can begin with a single consultation and decide later whether the three session package or ongoing coaching would be helpful.",
     },
     {
       question: "How do payment and scheduling work?",
-      answer: "[Placeholder — confirm booking platform, payment flow, and scheduling details before hi-fi]",
+      answer: "After your discovery call, I will send the appropriate agreement and payment link. Once those are completed, you will receive your intake materials and scheduling link. Your forms should be submitted at least 48 hours before your first appointment.",
     },
   ],
 };
@@ -277,7 +291,7 @@ export const ayurvedaInvitation: {
   supporting: string;
   cta: CTA;
 } = {
-  heading: "Ready to understand what your body needs?",
-  supporting: "Start with a complimentary conversation, or book your consultation directly if you already know you'd like to begin.",
+  heading: "You do not have to keep guessing about what your body needs.",
+  supporting: "Maybe you already know something feels off. Maybe you are moving through a major transition and need help staying connected to yourself. Or maybe you are simply ready to understand your body in a deeper and more personal way. Come talk to me. Tell me what has been going on. We will figure out the next step together.",
   cta: { label: "Book a Discovery Call", href: "https://calendar.app.google/7z7nWXgTYaoJVVVv6" },
 };

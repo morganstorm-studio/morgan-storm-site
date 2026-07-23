@@ -45,6 +45,11 @@ import { accessibleIntro } from "../../data/pages/ayurveda";
             <p class="mt-6 max-w-xl font-body text-base leading-relaxed text-deep-ocean/85">{paragraph}</p>
           ))
         }
+        {
+          accessibleIntro.featuredStatement && (
+            <p class="mt-10 max-w-xl border-l-4 border-warm-sand pl-5 font-display text-xl text-deep-ocean">{accessibleIntro.featuredStatement}</p>
+          )
+        }
       </div>
 
       <div class="flex justify-center lg:justify-end">
