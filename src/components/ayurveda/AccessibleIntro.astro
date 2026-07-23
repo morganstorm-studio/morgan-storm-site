@@ -6,7 +6,7 @@ import leafAccent from "../../assets/ayurveda-wireframe/leaves-15.png";
 import { accessibleIntro } from "../../data/pages/ayurveda";
 ---
 
-<section class="relative overflow-hidden bg-linen">
+<section class="relative bg-linen">
   <div
     class="pointer-events-none absolute top-0 left-0 z-0 h-[300px] w-[150px] overflow-hidden opacity-100 lg:h-[455px] lg:w-[230px]"
     aria-hidden="true"
@@ -52,29 +52,36 @@ import { accessibleIntro } from "../../data/pages/ayurveda";
         }
       </div>
 
-      <div class="flex justify-center lg:justify-end">
+      <div class="relative flex justify-center lg:justify-end">
+        <!-- Mobile/tablet: greenery image sits behind the portrait, positioned with a
+             top offset (top-3/4) that's a percentage of the photo's own height, so the
+             ~25% overlap holds regardless of how big the photo renders at a given
+             breakpoint (w-72 vs md:w-80), instead of a fixed pixel value. -->
+        <div
+          class="pointer-events-none absolute left-1/2 top-3/4 h-56 w-screen -translate-x-1/2 overflow-hidden lg:hidden"
+          aria-hidden="true"
+        >
+          <Image
+            src={edgeImage}
+            alt=""
+            widths={[400, 700, 1000]}
+            sizes="100vw"
+            loading="lazy"
+            class="h-full w-full object-cover"
+            style="object-position: 50% 40%"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-deep-ocean/55 to-deep-ocean/75"></div>
+        </div>
+
         <Image
           src={portraitImage}
           alt="Morgan Storm giving an Ayurvedic bodywork treatment"
           widths={[300, 500, 700]}
           sizes="(min-width: 1024px) 320px, 70vw"
           loading="lazy"
-          class="aspect-3/4 w-72 border-4 border-warm-sand object-cover shadow-lg md:w-80 lg:-translate-x-[20%]"
+          class="relative z-10 aspect-3/4 w-40 border-4 border-warm-sand object-cover shadow-lg md:w-80 lg:z-auto lg:-translate-x-[20%]"
         />
       </div>
     </div>
-  </div>
-
-  <div class="relative h-56 w-full overflow-hidden lg:hidden" aria-hidden="true">
-    <Image
-      src={edgeImage}
-      alt=""
-      widths={[400, 700, 1000]}
-      sizes="100vw"
-      loading="lazy"
-      class="h-full w-full object-cover"
-      style="object-position: 50% 35%"
-    />
-    <div class="absolute inset-0 bg-gradient-to-b from-deep-ocean/55 to-deep-ocean/75"></div>
   </div>
 </section>
