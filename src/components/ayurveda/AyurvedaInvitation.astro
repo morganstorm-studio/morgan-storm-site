@@ -19,18 +19,20 @@ import { contactEmail } from "../../data/site";
   </div>
   <div class="absolute inset-0 bg-gradient-to-b from-deep-ocean/65 to-deep-ocean/85" aria-hidden="true"></div>
 
-  <div class="container-content relative py-24 text-center text-linen md:py-32">
+  <div class="container-content relative py-[95px] text-center text-linen md:py-[122px]">
     <h2 class="mx-auto max-w-2xl font-display text-display-md">{ayurvedaInvitation.heading}</h2>
-    <p class="mx-auto mt-4 max-w-xl font-body text-lg text-linen/90">{ayurvedaInvitation.supporting}</p>
-    <div class="mt-8 flex justify-center">
+    <p class="mx-auto mt-5 max-w-2xl font-body text-lg text-linen/90">{ayurvedaInvitation.supporting}</p>
+    <div class="mt-10 flex justify-center">
       <a
         href={ayurvedaInvitation.cta.href}
-        class="inline-flex items-center gap-2 rounded-full bg-vishuddha-teal px-7 py-3.5 font-body text-base text-linen transition-colors hover:bg-warm-sand hover:text-deep-ocean"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-full bg-warm-sand px-8 py-4 font-body text-base text-deep-ocean transition-colors hover:bg-vishuddha-teal hover:text-linen"
       >
         {ayurvedaInvitation.cta.label}
       </a>
     </div>
-    <a href={`mailto:${contactEmail}`} class="mt-5 inline-block font-body text-sm text-warm-sand hover:text-linen">
+    <a href={`mailto:${contactEmail}`} class="mt-6 inline-block font-body text-sm text-warm-sand hover:text-linen">
       Questions? Email Morgan.
     </a>
   </div>

@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 import portraitImage from "../../assets/ayurveda-wireframe/about-portrait-goldenhour.png";
 import edgeImage from "../../assets/ayurveda-wireframe/about-edge.jpg";
-import leafAccent from "../../assets/ayurveda-wireframe/leaves-10.png";
+import leafAccent from "../../assets/ayurveda-wireframe/leaves-15.png";
 import { aboutMorganAyurveda } from "../../data/pages/ayurveda";
 ---
 
 <section class="relative overflow-hidden bg-teal-mist/30">
-  <div class="absolute inset-y-0 right-0 hidden w-[22%] lg:block" aria-hidden="true">
+  <div class="absolute inset-y-0 right-0 hidden w-[22%] translate-x-[25%] lg:block" aria-hidden="true">
     <Image
       src={edgeImage}
       alt=""
@@ -20,10 +20,10 @@ import { aboutMorganAyurveda } from "../../data/pages/ayurveda";
     <div class="absolute inset-0 bg-gradient-to-b from-deep-ocean/55 to-deep-ocean/75"></div>
   </div>
 
-  <div class="container-content relative py-16 lg:pr-[24%] md:py-24">
-    <div class="grid items-center gap-10 lg:grid-cols-12">
+  <div class="container-content relative z-10 py-20 lg:pr-[26%] md:py-28">
+    <div class="grid items-center gap-12 lg:grid-cols-12">
       <div class="lg:col-span-4">
-        <div class="relative w-full max-w-[320px]">
+        <div class="relative mx-auto w-full max-w-[320px]">
           <Image
             src={portraitImage}
             alt="Morgan Storm smiling, chin resting on her hand, golden hour light"
@@ -32,27 +32,31 @@ import { aboutMorganAyurveda } from "../../data/pages/ayurveda";
             loading="lazy"
             class="relative z-10 aspect-3/4 w-full rounded-2xl border-4 border-warm-sand object-cover shadow-lg"
           />
-          <Image
-            src={leafAccent}
-            alt=""
-            widths={[300, 500]}
-            sizes="220px"
-            loading="lazy"
-            class="pointer-events-none absolute -bottom-8 -left-10 z-20 w-40 opacity-80 md:w-52"
+          <div
+            class="pointer-events-none absolute bottom-[-20px] left-[-40px] z-20 h-[320px] w-[160px] overflow-hidden opacity-100 lg:bottom-[-50px] lg:left-[-100px] lg:h-[clamp(440px,40vw,600px)] lg:w-[clamp(220px,20vw,300px)] lg:translate-y-[40%]"
             aria-hidden="true"
-          />
+          >
+            <Image
+              src={leafAccent}
+              alt=""
+              widths={[300, 400, 600, 800]}
+              sizes="600px"
+              loading="lazy"
+              class="absolute top-1/2 left-1/2 w-[320px] max-w-none -translate-x-1/2 -translate-y-1/2 scale-x-[-1] rotate-90 lg:w-[clamp(440px,40vw,600px)]"
+            />
+          </div>
         </div>
       </div>
 
       <div class="lg:col-span-8">
         <p class="font-accent text-sm uppercase tracking-widest text-vishuddha-teal">{aboutMorganAyurveda.eyebrow}</p>
-        <h2 class="mt-4 font-display text-display-md text-deep-ocean">{aboutMorganAyurveda.heading}</h2>
+        <h2 class="mt-5 font-display text-display-md text-deep-ocean">{aboutMorganAyurveda.heading}</h2>
         {
           aboutMorganAyurveda.paragraphs.map((paragraph) => (
-            <p class="mt-5 max-w-xl font-body text-base leading-relaxed text-deep-ocean/85">{paragraph}</p>
+            <p class="mt-6 max-w-lg font-body text-base leading-relaxed text-deep-ocean/85">{paragraph}</p>
           ))
         }
-        <p class="mt-5 max-w-xl font-accent text-base text-deep-ocean/90 italic">{aboutMorganAyurveda.closing}</p>
+        <p class="mt-6 max-w-lg font-accent text-base text-deep-ocean/90 italic">{aboutMorganAyurveda.closing}</p>
       </div>
     </div>
   </div>

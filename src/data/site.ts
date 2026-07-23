@@ -2,6 +2,8 @@ import type { NavLink } from "./types";
 
 export const siteTitle = "Morgan Storm";
 
+export const bookingUrl = "https://calendar.app.google/7z7nWXgTYaoJVVVv6";
+
 /**
  * Portfolio and Résumé are reachable as nested children of Web & Strategy
  * and About, rather than as separate top-level items — keeps the primary
@@ -11,7 +13,7 @@ export const primaryNav: NavLink[] = [
   { label: "Web & Strategy", href: "/coming-soon", children: [{ label: "Portfolio", href: "/coming-soon" }] },
   { label: "Ayurveda", href: "/ayurveda" },
   { label: "About", href: "/coming-soon", children: [{ label: "Résumé", href: "/coming-soon" }] },
-  { label: "Contact", href: "/coming-soon" },
+  { label: "Contact", href: bookingUrl },
 ];
 
 export const footerNav: NavLink[] = primaryNav;
@@ -25,6 +27,7 @@ export const legalEntityLine = "Morgan Storm is a brand of Dhi Sangha LLC.";
 export const logos = {
   primaryLockup: "/logos/morgan-storm-ahc-lockup.png",
   dhiSanghaMark: "/logos/dhi_sangha_mark.png",
+  dhiSanghaMarkWhite: "/logos/dhi-sangha-mark-white.png",
 };
 
 export const contactEmail = "hello@morgan-storm.com";

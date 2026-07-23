@@ -2,28 +2,43 @@
 import { Image } from "astro:assets";
 import transitionMark from "../../assets/ayurveda-wireframe/mark-transition.png";
 import quoteFrame from "../../assets/ayurveda-wireframe/mark-frame.png";
+import dividerMark from "../../assets/ayurveda-wireframe/mark-divider.png";
 import { whoMorganHelps } from "../../data/pages/ayurveda";
 ---
 
-<section class="bg-nadi-flow">
-  <div class="container-content py-16 text-linen md:py-24">
+<section class="relative overflow-hidden bg-nadi-flow">
+  <div
+    class="pointer-events-none absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-deep-ocean/55"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-content relative z-10 py-20 text-linen md:py-28">
     <div class="mx-auto max-w-2xl text-center">
       <p class="font-accent text-sm uppercase tracking-wide text-linen/90">{whoMorganHelps.transition}</p>
       <Image
         src={transitionMark}
         alt=""
-        widths={[200, 300]}
-        sizes="140px"
+        widths={[300, 400]}
+        sizes="224px"
         loading="lazy"
-        class="mx-auto mt-5 w-32 rotate-180 opacity-80 md:w-40"
+        class="mx-auto mt-6 w-44 rotate-180 opacity-100 md:w-56"
         aria-hidden="true"
       />
     </div>
 
-    <div class="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
+    <div class="relative mt-16 grid gap-14 md:grid-cols-2 md:gap-20">
+      <Image
+        src={dividerMark}
+        alt=""
+        widths={[300, 500]}
+        sizes="260px"
+        loading="lazy"
+        class="pointer-events-none absolute top-1/2 left-1/2 z-10 hidden w-64 -translate-x-1/2 -translate-y-1/2 rotate-90 opacity-100 md:block"
+        aria-hidden="true"
+      />
       <div>
         <h3 class="font-display text-2xl text-linen md:text-3xl">{whoMorganHelps.now.heading}</h3>
-        <ul class="mt-6 space-y-4 font-body text-base leading-relaxed text-linen/90">
+        <ul class="mt-7 space-y-5 font-body text-base leading-relaxed text-linen/90">
           {
             whoMorganHelps.now.items.map((item) => (
               <li class="flex gap-3">
@@ -35,9 +50,19 @@ import { whoMorganHelps } from "../../data/pages/ayurveda";
         </ul>
       </div>
 
+      <Image
+        src={dividerMark}
+        alt=""
+        widths={[300, 500]}
+        sizes="260px"
+        loading="lazy"
+        class="mx-auto w-64 opacity-100 md:hidden"
+        aria-hidden="true"
+      />
+
       <div>
         <h3 class="font-display text-2xl text-linen md:text-3xl">{whoMorganHelps.together.heading}</h3>
-        <ul class="mt-6 space-y-4 font-body text-base leading-relaxed text-linen/90">
+        <ul class="mt-7 space-y-5 font-body text-base leading-relaxed text-linen/90">
           {
             whoMorganHelps.together.items.map((item) => (
               <li class="flex gap-3">
@@ -50,14 +75,14 @@ import { whoMorganHelps } from "../../data/pages/ayurveda";
       </div>
     </div>
 
-    <div class="relative mx-auto mt-16 max-w-2xl px-8 py-9 text-center">
+    <div class="relative mx-auto mt-20 max-w-2xl px-16 py-16 text-center">
       <Image
         src={quoteFrame}
         alt=""
         widths={[600, 900]}
         sizes="640px"
         loading="lazy"
-        class="pointer-events-none absolute inset-0 h-full w-full opacity-70"
+        class="pointer-events-none absolute inset-0 h-full w-full opacity-100"
         aria-hidden="true"
       />
       <p class="relative font-body text-lg text-linen">{whoMorganHelps.closing}</p>

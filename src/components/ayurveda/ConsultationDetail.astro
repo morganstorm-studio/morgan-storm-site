@@ -5,24 +5,25 @@ import { consultationDetail } from "../../data/pages/ayurveda";
 ---
 
 <section class="bg-teal-mist/40">
-  <div class="container-content py-16 md:py-24">
-    <div class="grid gap-14 lg:grid-cols-12 lg:gap-16">
+  <div class="container-content py-20 md:py-28">
+    <!-- Desktop: existing multi-column layout, unchanged -->
+    <div class="hidden gap-16 lg:grid lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-5">
         <p class="font-accent text-sm uppercase tracking-widest text-vishuddha-teal">{consultationDetail.eyebrow}</p>
-        <h2 class="mt-4 font-display text-3xl leading-snug text-deep-ocean md:text-4xl">{consultationDetail.heading}</h2>
+        <h2 class="mt-5 font-display text-3xl text-deep-ocean md:text-4xl">{consultationDetail.heading}</h2>
         {
           consultationDetail.paragraphs.map((paragraph) => (
-            <p class="mt-5 font-body text-base leading-relaxed text-deep-ocean/85">{paragraph}</p>
+            <p class="mt-6 font-body text-base leading-relaxed text-deep-ocean/85">{paragraph}</p>
           ))
         }
-        <p class="mt-6 border-l-2 border-warm-sand pl-5 font-accent text-base text-deep-ocean/90 italic">
+        <p class="mt-8 border-l-2 border-warm-sand pl-6 font-accent text-base text-deep-ocean/90 italic">
           {consultationDetail.pullQuote}
         </p>
-        <p class="mt-5 font-body text-sm text-deep-ocean/70">{consultationDetail.note}</p>
+        <p class="mt-6 font-body text-sm text-deep-ocean/70">{consultationDetail.note}</p>
       </div>
 
       <div class="lg:col-span-7">
-        <div class="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+        <div class="grid gap-x-12 gap-y-10 sm:grid-cols-2">
           {
             consultationDetail.topics.map((topic) => (
               <div>
@@ -30,9 +31,8 @@ import { consultationDetail } from "../../data/pages/ayurveda";
                 <Image
                   src={dividerMark}
                   alt=""
-                  width={105}
-                  height={13}
-                  class="mt-2 mb-3 h-[13px] w-[105px] opacity-60"
+                  width={448}
+                  class="mt-3 mb-4 w-[180px] h-auto opacity-60"
                   aria-hidden="true"
                 />
                 <p class="font-body text-sm leading-relaxed text-deep-ocean/80">{topic.description}</p>
@@ -41,13 +41,177 @@ import { consultationDetail } from "../../data/pages/ayurveda";
           }
         </div>
 
-        <div class="mt-10 rounded-2xl bg-warm-sand/25 p-7">
+        <div class="mt-12 rounded-2xl bg-warm-sand p-8">
           <p class="font-accent text-xs uppercase tracking-wide text-deep-ocean/80">{consultationDetail.whatThisIsNot.heading}</p>
-          <p class="mt-3 font-body text-sm leading-relaxed text-deep-ocean/85">
+          <p class="mt-4 font-body text-sm leading-relaxed text-deep-ocean/85">
             {consultationDetail.whatThisIsNot.items.join(" · ")}
           </p>
         </div>
       </div>
     </div>
+
+    <!-- Mobile/tablet: one-topic-at-a-time carousel -->
+    <div class="px-6 sm:px-8 lg:hidden">
+      <p class="font-accent text-sm uppercase tracking-widest text-vishuddha-teal">{consultationDetail.eyebrow}</p>
+      <h2 class="mt-5 font-display text-3xl text-deep-ocean">{consultationDetail.heading}</h2>
+      <p class="mt-6 font-body text-base leading-relaxed text-deep-ocean/85">{consultationDetail.paragraphs[0]}</p>
+      <p class="mt-8 border-l-2 border-warm-sand pl-6 font-accent text-base text-deep-ocean/90 italic">
+        {consultationDetail.pullQuote}
+      </p>
+
+      <div class="js-consultation-carousel relative mt-10 rounded-3xl bg-linen p-7 shadow-md" data-carousel>
+        <p class="font-body text-sm text-vishuddha-teal" data-counter>1 / {consultationDetail.topics.length}</p>
+
+        <div class="relative mt-3 min-h-[200px]" data-track aria-live="polite">
+          {
+            consultationDetail.topics.map((topic, index) => (
+              <div
+                class={`transition-opacity duration-300 ${index === 0 ? "relative opacity-100" : "absolute inset-0 opacity-0"}`}
+                data-slide
+                aria-hidden={index === 0 ? "false" : "true"}
+              >
+                <h3 class="font-display text-xl text-deep-ocean">{topic.title}</h3>
+                <Image
+                  src={dividerMark}
+                  alt=""
+                  width={448}
+                  class="mt-3 mb-4 w-[140px] h-auto opacity-60"
+                  aria-hidden="true"
+                />
+                <p class="font-body text-base leading-relaxed text-deep-ocean/80">{topic.description}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-8 flex items-center justify-between">
+          <button
+            type="button"
+            data-prev
+            aria-label="Previous consultation topic"
+            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-deep-ocean/40 text-deep-ocean transition-colors hover:bg-deep-ocean hover:text-linen"
+          >
+            <svg width="8" height="14" viewBox="0 0 8 14" aria-hidden="true">
+              <path
+                d="M7 1L1 7l6 6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <div class="flex items-center gap-2" data-dots role="tablist" aria-label="Consultation topics">
+            {
+              consultationDetail.topics.map((topic, index) => (
+                <button
+                  type="button"
+                  data-dot
+                  role="tab"
+                  aria-selected={index === 0 ? "true" : "false"}
+                  aria-label={`Go to topic ${index + 1}: ${topic.title}`}
+                  class={`h-2 w-2 rounded-full transition-colors ${index === 0 ? "bg-deep-ocean" : "bg-teal-mist"}`}
+                />
+              ))
+            }
+          </div>
+
+          <button
+            type="button"
+            data-next
+            aria-label="Next consultation topic"
+            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-deep-ocean/40 text-deep-ocean transition-colors hover:bg-deep-ocean hover:text-linen"
+          >
+            <svg width="8" height="14" viewBox="0 0 8 14" aria-hidden="true">
+              <path
+                d="M1 1l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <p class="mt-8 font-body text-sm text-deep-ocean/70">{consultationDetail.note}</p>
+
+      <div class="mt-6 rounded-2xl bg-warm-sand p-7">
+        <p class="font-accent text-xs uppercase tracking-wide text-deep-ocean/80">{consultationDetail.whatThisIsNot.heading}</p>
+        <p class="mt-4 font-body text-sm leading-relaxed text-deep-ocean/85">
+          {consultationDetail.whatThisIsNot.items.join(" · ")}
+        </p>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  const carousels = document.querySelectorAll(".js-consultation-carousel");
+
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector("[data-track]");
+    const slides = Array.from(carousel.querySelectorAll("[data-slide]"));
+    const dots = Array.from(carousel.querySelectorAll("[data-dot]"));
+    const counter = carousel.querySelector("[data-counter]");
+    const prevBtn = carousel.querySelector("[data-prev]");
+    const nextBtn = carousel.querySelector("[data-next]");
+    if (!track || slides.length === 0) return;
+
+    let current = 0;
+
+    const render = () => {
+      slides.forEach((slide, i) => {
+        const active = i === current;
+        slide.classList.toggle("relative", active);
+        slide.classList.toggle("opacity-100", active);
+        slide.classList.toggle("absolute", !active);
+        slide.classList.toggle("inset-0", !active);
+        slide.classList.toggle("opacity-0", !active);
+        slide.setAttribute("aria-hidden", active ? "false" : "true");
+      });
+      dots.forEach((dot, i) => {
+        const active = i === current;
+        dot.classList.toggle("bg-deep-ocean", active);
+        dot.classList.toggle("bg-teal-mist", !active);
+        dot.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      if (counter) counter.textContent = `${current + 1} / ${slides.length}`;
+    };
+
+    const goTo = (index) => {
+      current = (index + slides.length) % slides.length;
+      render();
+    };
+
+    prevBtn?.addEventListener("click", () => goTo(current - 1));
+    nextBtn?.addEventListener("click", () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+
+    carousel.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") goTo(current - 1);
+      if (event.key === "ArrowRight") goTo(current + 1);
+    });
+
+    let touchStartX = null;
+    track.addEventListener(
+      "touchstart",
+      (event) => {
+        touchStartX = event.touches[0].clientX;
+      },
+      { passive: true },
+    );
+    track.addEventListener("touchend", (event) => {
+      if (touchStartX === null) return;
+      const deltaX = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(deltaX) > 40) {
+        goTo(deltaX > 0 ? current - 1 : current + 1);
+      }
+      touchStartX = null;
+    });
+  });
+</script>

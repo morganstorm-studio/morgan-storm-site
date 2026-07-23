@@ -7,15 +7,19 @@ import { accessibleIntro } from "../../data/pages/ayurveda";
 ---
 
 <section class="relative overflow-hidden bg-linen">
-  <Image
-    src={leafAccent}
-    alt=""
-    widths={[300, 500]}
-    sizes="320px"
-    loading="lazy"
-    class="pointer-events-none absolute -top-10 -left-10 z-0 hidden w-64 rotate-180 opacity-20 lg:block"
+  <div
+    class="pointer-events-none absolute top-0 left-0 z-0 h-[300px] w-[150px] overflow-hidden opacity-100 lg:h-[455px] lg:w-[230px]"
     aria-hidden="true"
-  />
+  >
+    <Image
+      src={leafAccent}
+      alt=""
+      widths={[400, 700, 1000]}
+      sizes="455px"
+      loading="lazy"
+      class="absolute top-1/2 left-1/2 w-[300px] max-w-none -translate-x-1/2 -translate-y-1/2 rotate-90 lg:w-[455px]"
+    />
+  </div>
 
   <div class="absolute inset-y-0 right-0 hidden w-[26%] lg:block" aria-hidden="true">
     <Image
@@ -30,15 +34,15 @@ import { accessibleIntro } from "../../data/pages/ayurveda";
     <div class="absolute inset-0 bg-gradient-to-b from-deep-ocean/55 to-deep-ocean/75"></div>
   </div>
 
-  <div class="container-content relative py-16 lg:pr-[28%] md:py-24">
-    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
-      <div>
+  <div class="container-content relative py-20 lg:pr-[28%] md:py-28">
+    <div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
+      <div class="relative z-10">
         <p class="font-accent text-sm uppercase tracking-widest text-vishuddha-teal">{accessibleIntro.eyebrow}</p>
-        <div class="mt-4 h-px w-12 bg-warm-sand"></div>
-        <h2 class="mt-6 font-display text-display-md text-deep-ocean">{accessibleIntro.heading}</h2>
+        <div class="mt-5 h-px w-12 bg-warm-sand"></div>
+        <h2 class="mt-7 font-display text-display-md text-deep-ocean">{accessibleIntro.heading}</h2>
         {
           accessibleIntro.paragraphs.map((paragraph) => (
-            <p class="mt-5 max-w-lg font-body text-base leading-relaxed text-deep-ocean/85">{paragraph}</p>
+            <p class="mt-6 max-w-xl font-body text-base leading-relaxed text-deep-ocean/85">{paragraph}</p>
           ))
         }
       </div>
@@ -50,7 +54,7 @@ import { accessibleIntro } from "../../data/pages/ayurveda";
           widths={[300, 500, 700]}
           sizes="(min-width: 1024px) 320px, 70vw"
           loading="lazy"
-          class="aspect-3/4 w-72 border-4 border-warm-sand object-cover shadow-lg md:w-80"
+          class="aspect-3/4 w-72 border-4 border-warm-sand object-cover shadow-lg md:w-80 lg:-translate-x-[20%]"
         />
       </div>
     </div>

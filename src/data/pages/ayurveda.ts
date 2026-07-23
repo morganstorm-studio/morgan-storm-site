@@ -3,14 +3,18 @@ import type { CTA } from "../types";
 export const ayurvedaHero: {
   eyebrow: string;
   headline: string;
-  supporting: string;
+  supporting: string[];
+  note: string;
   cta: CTA;
 } = {
-  eyebrow: "Personalized Ayurvedic Counseling",
-  headline: "Create a way of living that truly supports you.",
-  supporting:
-    "Ayurvedic counseling helps you understand your body's unique needs and make personalized changes to your food, routines, sleep, stress, and lifestyle.",
-  cta: { label: "Book a Discovery Call", href: "/coming-soon" },
+  eyebrow: "Personalized Ayurvedic Wellness Counseling",
+  headline: "Your body is trying to tell you something. Let's figure out what it is saying.",
+  supporting: [
+    "Maybe you are tired of being tired. Your digestion feels unpredictable. Your hormones feel off. Or you have been told that everything looks normal, even though you know you do not feel like yourself.",
+    "Ayurveda helps us look at the whole picture so we can understand what your body may be responding to and create personalized food, lifestyle, and routine recommendations that actually make sense for you.",
+  ],
+  note: "Complimentary 20 minute conversation. You do not need to know your dosha or have everything figured out before we talk.",
+  cta: { label: "Book a Discovery Call", href: "https://calendar.app.google/7z7nWXgTYaoJVVVv6" },
 };
 
 export const accessibleIntro = {
@@ -23,27 +27,34 @@ export const accessibleIntro = {
 };
 
 export const whoMorganHelps = {
-  transition: "You're capable of holding a lot. Your body may be asking for a steadier way to do it.",
+  heading: "Where You Are Now and Where We Can Go",
+  lead: "You are doing your best, but something still feels off.",
+  intro:
+    "You may be productive, capable, and used to holding a lot together. From the outside, you probably look like you are doing fine. But your body may be telling a different story.",
   now: {
     heading: "Where you may be now",
     items: [
-      "You are tired more often than you think you should be—even when you are doing your best to take care of yourself.",
-      "Stress, travel, irregular meals, or a busy schedule quickly show up as bloating, constipation, discomfort, or unpredictable digestion.",
-      "You want supportive routines, but you do not have hours each morning to cook, journal, meditate, exercise, and do everything “right.”",
-      "Your mind and schedule rarely slow down, and you are craving more grounding, consistency, and ease.",
+      "Your energy feels low, inconsistent, or completely drained no matter how much you rest.",
+      "Stress, travel, irregular meals, or a busy schedule quickly show up as bloating, gas, constipation, cravings, or unpredictable digestion.",
+      "Your hormones or cycle feel off, but you are not sure what your body is actually asking for.",
+      "You have tried health advice that worked for someone else, but it did not work the same way for you.",
+      "You have been told that everything looks normal, even though you know you do not feel fine.",
+      "You want to feel better, but you do not have hours every day to follow a perfect wellness routine.",
     ],
   },
   together: {
     heading: "What we can build together",
     items: [
-      "More stable energy that supports your work and life without relying on constant pushing.",
-      "Meals and food rhythms that help you feel nourished and comfortable—even during busy weeks or travel.",
-      "Simple routines that calm your system without taking over your day.",
-      "A steadier, more grounded relationship with your body, so you know how to respond when life gets demanding.",
+      "A clearer understanding of what your symptoms may be responding to.",
+      "Food and meal rhythms that support your digestion, energy, hormones, and everyday life.",
+      "Simple routines that fit your real schedule and capacity.",
+      "More awareness of how stress, sleep, food, movement, travel, and your cycle affect one another.",
+      "A personalized plan for helping your body return to a steadier place.",
+      "More confidence in knowing what your body needs and how to respond.",
     ],
   },
   closing:
-    "The goal is not to make your life smaller. It is to help your body feel supported within the full life you are building.",
+    "The goal is not perfect balance. It is knowing yourself well enough to recognize what is happening, understand what your body is asking for, and find your way back with more confidence and grace.",
 };
 
 export interface ServicePackage {
@@ -55,7 +66,6 @@ export interface ServicePackage {
   description: string;
   features: string[];
   bestFor: string;
-  cta: CTA;
   recommended?: boolean;
 }
 
@@ -63,6 +73,7 @@ export const servicePackages: {
   heading: string;
   supporting: string;
   packages: ServicePackage[];
+  sharedCta: { supporting: string; cta: CTA };
   mealCompanion: { eyebrow: string; heading: string; description: string; example: string };
 } = {
   heading: "Choose the support that meets you where you are.",
@@ -72,7 +83,8 @@ export const servicePackages: {
       eyebrow: "Comprehensive Ayurvedic Consultation",
       tagline: "Personalized insight into how you feel.",
       title: "One private 90-minute session",
-      price: "$135",
+      price: "$110",
+      priceNote: "Normally $155",
       description: "A focused introduction to your constitution, patterns, and what may help.",
       features: [
         "Health & lifestyle intake, dosha assessment",
@@ -81,7 +93,6 @@ export const servicePackages: {
         "Access to the Meal Planning Companion",
       ],
       bestFor: "Best for: new to Ayurveda, or want focused insight.",
-      cta: { label: "Book a Discovery Call", href: "/coming-soon" },
     },
     {
       eyebrow: "Founding Client Package",
@@ -97,7 +108,6 @@ export const servicePackages: {
         "Meal Planning Companion access",
       ],
       bestFor: "Best for: want a clear plan and support using it.",
-      cta: { label: "Choose the Three-Session Package", href: "/coming-soon" },
       recommended: true,
     },
     {
@@ -115,9 +125,12 @@ export const servicePackages: {
         "Ongoing troubleshooting as life changes",
       ],
       bestFor: "Best for: want consistent support making it last.",
-      cta: { label: "Book a Discovery Call", href: "/coming-soon" },
     },
   ],
+  sharedCta: {
+    supporting: "Not sure which level of support is right for you? We'll talk through it together.",
+    cta: { label: "Book a Discovery Call", href: "https://calendar.app.google/7z7nWXgTYaoJVVVv6" },
+  },
   mealCompanion: {
     eyebrow: "Included with Every Paid Service",
     heading: "Your Ayurvedic Meal Planning Companion",
@@ -202,7 +215,7 @@ export const howToBegin: {
       description: "Attend your private 90-minute consultation. Recommendations and next steps depend on the service you select.",
     },
   ],
-  cta: { label: "Book a Discovery Call", href: "/coming-soon" },
+  cta: { label: "Book a Discovery Call", href: "https://calendar.app.google/7z7nWXgTYaoJVVVv6" },
 };
 
 export const aboutMorganAyurveda = {
@@ -266,5 +279,5 @@ export const ayurvedaInvitation: {
 } = {
   heading: "Ready to understand what your body needs?",
   supporting: "Start with a complimentary conversation, or book your consultation directly if you already know you'd like to begin.",
-  cta: { label: "Book a Discovery Call", href: "/coming-soon" },
+  cta: { label: "Book a Discovery Call", href: "https://calendar.app.google/7z7nWXgTYaoJVVVv6" },
 };

@@ -8,34 +8,36 @@ import { howToBegin } from "../../data/pages/ayurveda";
   <Image
     src={leafWash}
     alt=""
-    widths={[800, 1200, 1600]}
-    sizes="100vw"
+    widths={[800, 1200, 1600, 2000]}
+    sizes="120vw"
     loading="lazy"
-    class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-10"
+    class="pointer-events-none absolute top-1/2 left-1/2 z-0 w-[190%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-40 lg:w-[130%]"
     aria-hidden="true"
   />
 
-  <div class="container-content relative py-16 md:py-24">
+  <div class="container-content relative z-10 py-20 md:py-28">
     <h2 class="text-center font-display text-3xl text-deep-ocean md:text-4xl">{howToBegin.heading}</h2>
 
-    <div class="mx-auto mt-14 grid max-w-4xl gap-10 sm:grid-cols-3">
+    <div class="mx-auto mt-16 grid max-w-5xl gap-12 sm:grid-cols-3">
       {
         howToBegin.steps.map((step) => (
-          <div class="relative mt-4 rounded-2xl bg-teal-mist/30 px-6 pt-9 pb-7 text-center">
+          <div class="relative mt-4 rounded-2xl bg-teal-mist px-7 pt-10 pb-8 text-center">
             <span class="absolute -top-5 left-1/2 flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border border-warm-sand bg-linen font-display text-base text-deep-ocean">
               {step.number}
             </span>
             <h3 class="font-display text-lg text-deep-ocean">{step.title}</h3>
-            <p class="mt-2 font-body text-sm leading-relaxed text-deep-ocean/80">{step.description}</p>
+            <p class="mt-3 font-body text-sm leading-relaxed text-deep-ocean/80">{step.description}</p>
           </div>
         ))
       }
     </div>
 
-    <div class="mt-14 flex justify-center">
+    <div class="mt-16 flex justify-center">
       <a
         href={howToBegin.cta.href}
-        class="inline-flex items-center gap-2 rounded-full bg-vishuddha-teal px-7 py-3.5 font-body text-base text-linen transition-colors hover:bg-deep-ocean"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-full bg-warm-sand px-8 py-4 font-body text-base text-deep-ocean transition-colors hover:bg-deep-ocean hover:text-linen"
       >
         {howToBegin.cta.label}
       </a>

@@ -1,4 +1,5 @@
 import type { CTA } from "../types";
+import { bookingUrl } from "../site";
 
 export const hero: {
   eyebrow: string;
@@ -120,5 +121,5 @@ export const finalCTA: {
   heading: "Ready to find your next step?",
   supporting:
     "Whether you're building something meaningful or looking for a more grounded way forward, I'd love to hear what you're working through.",
-  cta: { label: "Get in Touch", href: "/coming-soon" },
+  cta: { label: "Get in Touch", href: bookingUrl },
 };

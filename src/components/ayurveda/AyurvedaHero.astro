@@ -17,27 +17,35 @@ import { ayurvedaHero } from "../../data/pages/ayurveda";
       style="object-position: 25% 42%"
     />
   </div>
-  <!-- Subject sits on the left of the frame; darken the right side so the
-       text column reads clearly against open sky/foliage. -->
-  <div class="absolute inset-0 bg-gradient-to-r from-deep-ocean/10 via-deep-ocean/45 to-deep-ocean/75" aria-hidden="true"></div>
+  <!-- Overlay is localized behind the text column: transparent to the left so
+       Morgan and the photo stay clear, fading in behind the copy on the right. -->
+  <div
+    class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-deep-ocean/65 to-transparent md:inset-y-0 md:left-auto md:h-auto md:w-[70%] md:bg-gradient-to-r md:from-transparent md:via-deep-ocean/35 md:to-deep-ocean/75"
+    aria-hidden="true"
+  ></div>
 
-  <div class="container-content relative py-32 md:py-40 lg:py-48">
-    <div class="mx-auto max-w-xl text-center md:ml-auto md:mr-0 md:max-w-md md:text-left">
+  <div class="container-content relative flex min-h-[115vh] flex-col justify-end py-12 md:block md:min-h-0 md:py-44 lg:py-52">
+    <div class="mx-auto max-w-xl text-center md:mr-0 md:ml-auto md:w-1/2 md:max-w-none md:text-left lg:w-[52%]">
       <p class="font-accent text-sm uppercase tracking-widest text-linen/90">{ayurvedaHero.eyebrow}</p>
-      <h1 class="mt-4 font-display text-display-lg leading-[1.15] text-linen">
+      <h1 class="mt-5 font-display text-display-lg text-linen">
         {ayurvedaHero.headline}
       </h1>
-      <p class="mt-5 font-body text-base text-linen/85 md:text-lg">
-        {ayurvedaHero.supporting}
-      </p>
-      <div class="mt-8 flex justify-center md:justify-start">
+      {
+        ayurvedaHero.supporting.map((paragraph) => (
+          <p class="mt-5 font-body text-base text-linen/85 md:text-lg">{paragraph}</p>
+        ))
+      }
+      <div class="mt-10 flex justify-center md:justify-start">
         <a
           href={ayurvedaHero.cta.href}
-          class="inline-flex items-center gap-2 rounded-full bg-vishuddha-teal px-7 py-3.5 font-body text-base text-linen transition-colors hover:bg-deep-ocean"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-full bg-warm-sand px-8 py-4 font-body text-base text-deep-ocean transition-colors hover:bg-deep-ocean hover:text-linen"
         >
           {ayurvedaHero.cta.label}
         </a>
       </div>
+      <p class="mt-4 font-body text-sm text-linen/70">{ayurvedaHero.note}</p>
     </div>
   </div>
 </section>

@@ -1,5 +1,5 @@
 ---
-import { primaryNav, logos } from "../../data/site";
+import { primaryNav, logos, bookingUrl } from "../../data/site";
 
 // Fixed/floating header: intentionally taken out of normal document flow so
 // the homepage hero photo can extend behind it uninterrupted. Interior
@@ -9,7 +9,7 @@ import { primaryNav, logos } from "../../data/site";
 <header class="fixed inset-x-0 top-0 z-50 px-[4vw] pt-5 md:px-[5vw] md:pt-6">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full border border-linen/30 bg-deep-ocean/35 px-5 py-2.5 backdrop-blur-md md:px-6 md:py-3">
     <a href="/" class="flex shrink-0 items-center gap-2" aria-label="Morgan Storm — Home">
-      <img src={logos.dhiSanghaMark} alt="" class="h-6 w-6 md:h-7 md:w-7" />
+      <img src={logos.dhiSanghaMarkWhite} alt="" class="h-6 w-6 md:h-7 md:w-7" />
       <span class="font-display text-xl text-linen md:text-2xl">Morgan Storm</span>
     </a>
 
@@ -60,7 +60,12 @@ import { primaryNav, logos } from "../../data/site";
               </li>
             ) : (
               <li>
-                <a href={link.href} class="font-body text-sm text-linen hover:text-warm-sand">
+                <a
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  class="font-body text-sm text-linen hover:text-warm-sand"
+                >
                   {link.label}
                 </a>
               </li>
@@ -71,8 +76,10 @@ import { primaryNav, logos } from "../../data/site";
     </nav>
 
     <a
-      href="/coming-soon"
-      class="hidden shrink-0 rounded-full border border-linen/50 px-5 py-2 font-body text-sm text-linen transition-colors hover:border-vishuddha-teal hover:bg-vishuddha-teal md:inline-flex md:items-center"
+      href={bookingUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden shrink-0 rounded-full border border-linen/70 px-5 py-2 font-body text-sm text-linen transition-colors hover:border-warm-sand hover:bg-warm-sand hover:text-deep-ocean md:inline-flex md:items-center"
     >
       Get in Touch
     </a>
@@ -98,7 +105,12 @@ import { primaryNav, logos } from "../../data/site";
       {
         primaryNav.map((link) => (
           <li>
-            <a href={link.href} class="block min-h-11 rounded-lg px-4 py-3 font-body text-deep-ocean">
+            <a
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              class="block min-h-11 rounded-lg px-4 py-3 font-body text-deep-ocean"
+            >
               {link.label}
             </a>
             {link.children && link.children.length > 0 && (
@@ -117,8 +129,10 @@ import { primaryNav, logos } from "../../data/site";
       }
       <li class="mt-2 px-4 pb-1">
         <a
-          href="/coming-soon"
-          class="block min-h-11 rounded-full bg-deep-ocean px-5 py-3 text-center font-body text-sm text-linen"
+          href={bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block min-h-11 rounded-full bg-warm-sand px-5 py-3 text-center font-body text-sm text-deep-ocean"
         >
           Get in Touch
         </a>

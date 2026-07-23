@@ -1,19 +1,27 @@
 ---
-import { footerNav, legalEntityLine, contactEmail, linkedInUrl, substackUrl, logos } from "../../data/site";
+import { footerNav, legalEntityLine, contactEmail, linkedInUrl, substackUrl, logos, bookingUrl } from "../../data/site";
 ---
 
 <footer class="border-t border-teal-mist bg-linen">
   <div class="container-content py-12">
-    <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+    <div class="flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:justify-between md:text-left">
       <div>
         <p class="font-display text-xl text-deep-ocean">Morgan Storm</p>
         <p class="mt-2 max-w-sm font-body text-sm text-deep-ocean/70">
           Strategic Communications &middot; Digital Strategy &middot; Ayurvedic Wellness
         </p>
+        <a
+          href={bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-flex items-center gap-2 rounded-full bg-warm-sand px-6 py-3 font-body text-sm text-deep-ocean transition-colors hover:bg-deep-ocean hover:text-linen"
+        >
+          Book a Discovery Call
+        </a>
       </div>
 
       <nav aria-label="Footer">
-        <ul class="flex flex-col gap-2 font-body text-sm">
+        <ul class="flex flex-col items-center gap-2 font-body text-sm md:items-start">
           {
             footerNav.map((link) => (
               <li>
@@ -26,7 +34,7 @@ import { footerNav, legalEntityLine, contactEmail, linkedInUrl, substackUrl, log
         </ul>
       </nav>
 
-      <ul class="flex flex-col gap-2 font-body text-sm">
+      <ul class="flex flex-col items-center gap-2 font-body text-sm md:items-start">
         <li>
           <a href={`mailto:${contactEmail}`} class="text-deep-ocean hover:text-vishuddha-teal">
             {contactEmail}
@@ -53,7 +61,9 @@ import { footerNav, legalEntityLine, contactEmail, linkedInUrl, substackUrl, log
       </ul>
     </div>
 
-    <div class="mt-10 flex items-start gap-2 border-t border-teal-mist pt-6 font-body text-xs text-deep-ocean/60">
+    <div
+      class="mt-10 flex flex-col items-center gap-2 border-t border-teal-mist pt-6 text-center font-body text-xs text-deep-ocean/60 md:flex-row md:items-start md:text-left"
+    >
       <img src={logos.dhiSanghaMark} alt="" class="mt-0.5 h-4 w-4 opacity-70" />
       <div>
         <p>&copy; {new Date().getFullYear()} Morgan Storm. All rights reserved.</p>
